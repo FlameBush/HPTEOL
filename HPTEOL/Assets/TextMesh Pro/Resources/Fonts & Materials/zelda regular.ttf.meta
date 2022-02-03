@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 4b3119e3f5f72664b916244790fdf005
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zelda regular
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0af554448e42b9f428e7773849dd8ab6, type: 3}
+  - {fileID: 12800000, guid: 648a7181fba123244ac3c958242fdf86, type: 3}
+  - {fileID: 12800000, guid: 873e480dfa9dd884fb60c047fac70b40, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

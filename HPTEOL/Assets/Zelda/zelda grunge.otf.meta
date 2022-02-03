@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2505eb6f2d7b52e4b81f0bebb031c52f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zelda Grunge
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9035c079e408d564f84f7e55c63302a6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 4f5c714a5a434ba4ab13ed5b99f9e5b3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zelda Bold
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b6132e3c10d96de4eb8112a6a3bbbefb, type: 3}
+  - {fileID: 12800000, guid: 74ad28539559e034b8ab6b350ed2a3a0, type: 3}
+  - {fileID: 12800000, guid: 06d289e2756e37e43851ef783c9f6d7f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
