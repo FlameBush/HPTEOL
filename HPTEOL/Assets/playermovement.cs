@@ -58,7 +58,7 @@ public class playermovement : MonoBehaviour
         jump = false;
     }
 
-    public void SettingsScreen()
+    /*public void SettingsScreen()
     {
         if (escapeScreenIsActive)
         {
@@ -78,5 +78,5 @@ public class playermovement : MonoBehaviour
             settingsScreen.setActive(false);
             Time.timeScale = 0;
         }
-    }
+    }*/
 }

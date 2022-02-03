@@ -6506,7 +6506,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1769365935}
+  animator: {fileID: 1769365938}
   runSpeed: 100
+  escapeScreen: {fileID: 0}
+  settingsScreen: {fileID: 0}
 --- !u!95 &1769365938
 Animator:
   serializedVersion: 3
