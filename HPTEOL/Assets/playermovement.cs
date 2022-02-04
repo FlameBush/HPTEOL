@@ -33,6 +33,7 @@ public class playermovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            animator.SetBool("IsJumping", true);
         }
 
         if (escapeScreen != null)
@@ -50,6 +51,11 @@ public class playermovement : MonoBehaviour
                 escapeScreenIsActive = false;
             }
         }
+    }
+
+    public void OnLanding()
+    {
+        animator.SetBool("IsJumping", false);
     }
 
     void FixedUpdate()
