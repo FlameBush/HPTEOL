@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Threading;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class playermovement : MonoBehaviour
 {
@@ -15,11 +13,9 @@ public class playermovement : MonoBehaviour
     float horizontal = 0f;
     bool jump = false;
 
-    public GameObject player;
-
     private bool escapeScreenIsActive = false;
     public GameObject escapeScreen;
-    // public GameObject settingsScreen;
+    public GameObject settingsScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -68,34 +64,6 @@ public class playermovement : MonoBehaviour
         jump = false;
     }
 
-<<<<<<< Updated upstream
-=======
-
-    // In Escape Screen there is a Back button which deactives Escape Screen
-    /*public void EscapeBackButton()
-    {
-        if (escapeScreen != null)
-        {
-            Time.timeScale = 1;
-            escapeScreen.SetActive(false);
-            escapeScreenIsActive = false;
-        }
-    }
-
-    public void RestartButton()
-    {
-        if (escapeScreen != null)
-        {
-            Time.timeScale = 1;
-            escapeScreen.SetActive(false);
-            escapeScreenIsActive = false;
-            SceneManager.LoadScene("Level1");
-        }
-    }*/
-
-
-
->>>>>>> Stashed changes
     /*public void SettingsScreen()
     {
         if (escapeScreenIsActive)
@@ -115,11 +83,6 @@ public class playermovement : MonoBehaviour
             escapeScreenIsActive = true;
             settingsScreen.setActive(false);
             Time.timeScale = 0;
-<<<<<<< Updated upstream
         }
     }*/
 }
-=======
-        }*/
-}
->>>>>>> Stashed changes

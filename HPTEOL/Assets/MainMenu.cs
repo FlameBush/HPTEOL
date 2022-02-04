@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +19,6 @@ public class MainMenu : MonoBehaviour
     public void MenuScene()
     {
         SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1;
     }
 
     public void Level1Scene()
