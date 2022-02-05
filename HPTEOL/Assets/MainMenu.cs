@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public void BackButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Time.timeScale = 1;
     }
 
     public void MenuScene()
