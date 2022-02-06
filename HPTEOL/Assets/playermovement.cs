@@ -63,26 +63,4 @@ public class playermovement : MonoBehaviour
         controller.Move(horizontal * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
-
-    /*public void SettingsScreen()
-    {
-        if (escapeScreenIsActive)
-        {
-            settingsScreen.setActive(true);
-            escapeScreen.setActive(false);
-            escapeScreenIsActive = false;
-            Time.timeScale = 0;
-        }
-    }
-
-    public void BackEscapeScreen()
-    {
-        if (!escapeScreenIsActive)
-        {
-            escapeScreen.setActive(true);
-            escapeScreenIsActive = true;
-            settingsScreen.setActive(false);
-            Time.timeScale = 0;
-        }
-    }*/
 }
