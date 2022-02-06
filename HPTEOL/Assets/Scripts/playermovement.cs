@@ -7,29 +7,29 @@ public class playermovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
+    // animation support
     public Animator animator;
 
-    public float runSpeed = 40f;
-    float horizontal = 0f;
-    bool jump = false;
+    // Movement support
+    [SerializeField] private float runSpeed = 40f;
+    private float horizontal = 0f;
+    private bool jump = false;
 
+    // Escapescreen support
     private bool escapeScreenIsActive = false;
     public GameObject escapeScreen;
     public GameObject settingsScreen;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal") * runSpeed;
 
+        // handle animation
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
+        // handle movement
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
@@ -61,6 +61,6 @@ public class playermovement : MonoBehaviour
     void FixedUpdate()
     {
         controller.Move(horizontal * Time.fixedDeltaTime, false, jump);
-        jump = false;
+        jump = false;   
     }
 }
