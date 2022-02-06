@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class FallVoid : MonoBehaviour
 {
-
-        public float DeathPoint;
+        [SerializeField] float DeathPoint = -10;
 
         void FixedUpdate()
         {

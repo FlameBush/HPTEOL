@@ -16,7 +16,6 @@ public class playermovement : MonoBehaviour
     private bool jump = false;
 
     // Escapescreen support
-    private bool escapeScreenIsActive = false;
     public GameObject escapeScreen;
     public GameObject settingsScreen;
 
@@ -34,22 +33,6 @@ public class playermovement : MonoBehaviour
         {
             jump = true;
             animator.SetBool("IsJumping", true);
-        }
-
-        if (escapeScreen != null)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape) && !escapeScreenIsActive)
-            {
-                Time.timeScale = 0;
-                escapeScreen.SetActive(true);
-                escapeScreenIsActive = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.Escape) && escapeScreenIsActive)
-            {
-                Time.timeScale = 1;
-                escapeScreen.SetActive(false);
-                escapeScreenIsActive = false;
-            }
         }
     }
 

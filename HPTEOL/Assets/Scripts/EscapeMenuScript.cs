@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class EscapeMenuScript : MonoBehaviour
 {
-    private bool escapeScreenIsActive = false;
+    public bool escapeScreenIsActive = false;
     public GameObject escapeScreen;
+
+    private Animator playerAnimator;
+
+    private void Awake()
+    {
+        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -14,16 +21,27 @@ public class EscapeMenuScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape) && !escapeScreenIsActive)
             {
-                Time.timeScale = 0;
-                escapeScreen.SetActive(true);
-                escapeScreenIsActive = true;
+                PauseGame();
             }
             else if (Input.GetKeyDown(KeyCode.Escape) && escapeScreenIsActive)
             {
-                Time.timeScale = 1;
-                escapeScreen.SetActive(false);
-                escapeScreenIsActive = false;
+                ResumeGame();
             }
         }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        escapeScreen.SetActive(true);
+        escapeScreenIsActive = true;
+        playerAnimator.SetBool("GameIsPaused", true);
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        escapeScreen.SetActive(false);
+        escapeScreenIsActive = false;
+        playerAnimator.SetBool("GameIsPaused", false);
     }
 }
