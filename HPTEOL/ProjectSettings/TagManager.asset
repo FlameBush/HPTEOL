@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - End of World
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Floor
-  - 
+  - End of World
   - 
   - 
   - 
@@ -39,6 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1751328171
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 833011033
     locked: 0
