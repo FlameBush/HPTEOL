@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    [SerializeField] private float speed = 20f;
+    private float speed = 65f;
     private Rigidbody2D rb2d;
     private Animator bulletAnimtor;
 
@@ -24,8 +24,7 @@ public class Spell : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "End of World"
-            || collision.collider.tag == "Floor"
-            )
+            || collision.collider.tag == "Floor")
         {
             Destroy(gameObject);
         }
