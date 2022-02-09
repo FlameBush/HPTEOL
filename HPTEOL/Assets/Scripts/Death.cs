@@ -4,14 +4,49 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    //[SerializeField] private GameObject WorldEnd;
-    [SerializeField] private Transform SpawningPoint;
+    PlayerStats player;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] private Transform SpawningPoint;
+    int playerHealth;
+
+    // to avoid a glitch I encountered
+    bool previousTimeHitWorldEdgeTrigger = false;
+    
+    private void Awake()
     {
-        if (collision.collider.tag == "End of World")
+        player = GetComponent<PlayerStats>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (!previousTimeHitWorldEdgeTrigger)
         {
-            transform.position = SpawningPoint.position;
+            previousTimeHitWorldEdgeTrigger = true;
+            if (collider.tag == "End of World")
+            {
+                transform.position = SpawningPoint.position;
+                player.PlayerTakesDamage(20);
+                //playerHealth = player.PlayersCurrentHealth;
+                //Debug.Log(playerHealth);
+            }
+        }
+        else
+        {
+            previousTimeHitWorldEdgeTrigger = false;
         }
     }
+
+    // needs some work
+    //private void Update()
+    //{
+    //    if (playerHealth == 0)
+    //    {
+    //        PlayerDied();
+    //    }
+    //}
+
+    //private void PlayerDied()
+    //{
+    //    Debug.Log("Player Died");
+    //}
 }

@@ -21,10 +21,10 @@ public class Spell : MonoBehaviour
         rb2d.velocity = transform.right * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.collider.tag == "End of World"
-            || collision.collider.tag == "Floor")
+        if (collider.tag == "End of World"
+            || collider.tag == "Floor")
         {
             Destroy(gameObject);
         }
