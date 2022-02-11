@@ -25,7 +25,6 @@ public class Spell : MonoBehaviour
     {
         if (collider.tag == "End of World" || collider.tag == "Floor")
         {
-            Debug.Log("YES!");
             Destroy(gameObject);
         }
     }
