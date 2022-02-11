@@ -19,10 +19,10 @@ public class PlayerStats : MonoBehaviour
         playerHealthBar.SetMaxHealth(playersMaxHealth);
     }
 
-    private void Update()
-    {
-        playerHealthBar.SetPlayerHealth(PlayersCurrentHealth);
-    }
+    //private void Update()
+    //{
+    //    playerHealthBar.SetPlayerHealth(PlayersCurrentHealth);
+    //}
 
     #region Properties
     public int PlayersCurrentHealth
@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour
         {
             playersCurrentHealth -= damageTaken;
 
-            playerHealthBar.SetPlayerHealth(PlayersCurrentHealth);
+            playerHealthBar.SetPlayerHealth(playersCurrentHealth);
         }
     }
 

@@ -23,9 +23,9 @@ public class Spell : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "End of World"
-            || collider.tag == "Floor")
+        if (collider.tag == "End of World" || collider.tag == "Floor")
         {
+            Debug.Log("YES!");
             Destroy(gameObject);
         }
     }
