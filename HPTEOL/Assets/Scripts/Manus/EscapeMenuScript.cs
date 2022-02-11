@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EscapeMenuScript : MonoBehaviour
 {
-    public bool escapeScreenIsActive = false;
+    public static bool escapeScreenIsActive = false;
     public GameObject escapeScreen;
 
     private Animator playerAnimator;

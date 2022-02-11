@@ -15,25 +15,25 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( Input.GetButtonDown("Fire1"))
+        if (!EscapeMenuScript.escapeScreenIsActive)
         {
-            //Shoot();
-            Instantiate<GameObject>(basicSpell, firePoint.position, firePoint.rotation);
-        }
-        else if (Input.GetButtonDown("Fire2"))
-        {
-            //Shoot();
-            Instantiate<GameObject>(secondSpell, firePoint.position, firePoint.rotation);
-        }
-        else if (Input.GetButtonDown("Fire3"))
-        {
-            //Shoot();
-            Instantiate<GameObject>(thirdSpell, firePoint.position, firePoint.rotation);
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot(basicSpell);
+            }
+            else if (Input.GetButtonDown("Fire2"))
+            {
+                Shoot(secondSpell);
+            }
+            else if (Input.GetButtonDown("Fire3"))
+            {
+                Shoot(thirdSpell);
+            }
         }
     }
 
-    private void Shoot ()
+    private void Shoot (GameObject prefab)
     {
-        Instantiate<GameObject>(basicSpell, firePoint.position, firePoint.rotation);
+        Instantiate<GameObject>(prefab, firePoint.position, firePoint.rotation);
     }
 }
