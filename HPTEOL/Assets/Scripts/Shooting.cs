@@ -6,61 +6,70 @@ using UnityEngine.UI;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject basicSpell;
-    [SerializeField] private GameObject secondSpell;
-    [SerializeField] private GameObject thirdSpell;
 
-    [SerializeField] private Image abilityImage1;
-    [SerializeField] private Image abilityImage2;
-    [SerializeField] private Image abilityImage3;
+    [SerializeField] private GameObject[] spells = new GameObject[3];
+    [SerializeField] private Image[] abilityImages = new Image[3];
+    private bool[] usedAbilityX = new bool[3];
 
     private const int maxBullets = 2;
     private int currentBulletNumber;
-    private bool usedAbility;
 
     // Update is called once per frame
     void Update()
     {
         if (!EscapeMenuScript.escapeScreenIsActive)
         {
-            if (Input.GetButtonDown("Fire1") && !usedAbility)
+            if (Input.GetButtonDown("Fire1") && !usedAbilityX[0])
             {
-                Shoot(basicSpell);
-                AnimatingAbilitySymbol(abilityImage1);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImage1, 0.25f));
+                Shoot(spells[0]);
+                AnimatingAbilitySymbol(abilityImages[0]);
+                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[0], 0.25f, 0));
+                usedAbilityX[0] = true;
             }
-            else if (Input.GetButtonDown("Fire2") && !usedAbility)
+            else if (Input.GetButtonDown("Fire2") && !usedAbilityX[1])
             {
-                Shoot(secondSpell);
-                AnimatingAbilitySymbol(abilityImage2);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImage2, 1f));
+                Shoot(spells[1]);
+                AnimatingAbilitySymbol(abilityImages[1]);
+                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[1], 0.75f, 1));
+                usedAbilityX[1] = true;
             }
-            else if (Input.GetButtonDown("Fire3") && !usedAbility)
+            else if (Input.GetButtonDown("Fire3") && !usedAbilityX[2])
             {
-                Shoot(thirdSpell);
-                AnimatingAbilitySymbol(abilityImage3);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImage3, 2f));
+                Shoot(spells[2]);
+                AnimatingAbilitySymbol(abilityImages[2]);
+                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[2], 1.2f, 2));
+                usedAbilityX[2] = true;
             }
         }
     }
-    // need delay ----- check StartCoroutine
+    /// <summary>
+    /// Implements what happen when an ability is used
+    /// </summary>
+    /// <param name="abilityImage"></param>
+    /// <param name="time"></param>
     private void AnimatingAbilitySymbol(Image abilityImage)
     {
-        abilityImage.color = new Color32(255, 255, 225, 150);
-        abilityImage.transform.localScale = new Vector2(0.8f, 0.8f);
-        usedAbility = true;
+        abilityImage.transform.LeanScale(new Vector2(0.8f, 0.8f), 0.125f);
+        abilityImage.transform.GetChild(2).gameObject.LeanMoveLocalY(-125, 0);
     }
 
-    private IEnumerator AnimatingAbilitySymbolBackwards(Image abilityImage, float time)
+    /// <summary>
+    /// Implement what happens when an ability "refills"
+    /// </summary>
+    /// <param name="abilityImage"></param>
+    /// <param name="time"></param>
+    /// <param name="i"></param>
+    /// <returns></returns>
+    private IEnumerator AnimatingAbilitySymbolBackwards(Image abilityImage, float time, int i)
     {
+        abilityImage.transform.LeanScale(Vector2.one, 0.3f).setEaseInBack();
+        abilityImage.transform.GetChild(2).gameObject.LeanMoveLocalY(0, time);
         yield return new WaitForSeconds(time);
 
-        abilityImage.color = new Color32(255, 255, 225, 70);
-        abilityImage.transform.localScale = new Vector2(1, 1);
-        usedAbility = false;
+        usedAbilityX[i] = false;
     }
 
-    private void Shoot (GameObject prefab)
+    private void Shoot(GameObject prefab)
     {
         Instantiate<GameObject>(prefab, firePoint.position, firePoint.rotation);
     }
