@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Death : MonoBehaviour
 {
+    // other classes
     PlayerStats player;
+    [SerializeField] DiedMenuScript diedMenu;
+    [SerializeField] EscapeMenuScript escapeMenuScript;
 
+    // support respawning
     [SerializeField] private Transform SpawningPoint;
     int playerHealth;
 
@@ -17,6 +22,11 @@ public class Death : MonoBehaviour
         player = GetComponent<PlayerStats>();
     }
 
+    private void Start()
+    {
+        playerHealth = player.PlayersCurrentHealth;
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (!previousTimeHitWorldEdgeTrigger)
@@ -25,9 +35,12 @@ public class Death : MonoBehaviour
             if (collider.tag == "End of World")
             {
                 transform.position = SpawningPoint.position;
-                player.PlayerTakesDamage(20);
-                //playerHealth = player.PlayersCurrentHealth;
-                //Debug.Log(playerHealth);
+                player.PlayerTakesDamage(50);
+                playerHealth = player.PlayersCurrentHealth;
+                if (playerHealth <= 0)
+                {
+                    PlayerDied();
+                }
             }
         }
         else
@@ -36,17 +49,17 @@ public class Death : MonoBehaviour
         }
     }
 
-    // needs some work
     //private void Update()
     //{
-    //    if (playerHealth == 0)
+    //    if (playerhealth == 0)
     //    {
-    //        PlayerDied();
+    //        playerdied();
     //    }
     //}
 
-    //private void PlayerDied()
-    //{
-    //    Debug.Log("Player Died");
-    //}
+    private void PlayerDied()
+    {
+        diedMenu.GetComponent<DiedMenuScript>().DisplayDiedMenu();
+        escapeMenuScript.GetComponent<EscapeMenuScript>().PauseGame();
+    }
 }

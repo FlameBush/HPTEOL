@@ -8,30 +8,23 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] int playersCurrentHealth;
     [SerializeField] HealthBar playerHealthBar;
 
-    private void Awake()
-    {
-        //playerHealthBar = GameObject.Find("Healthbar").GetComponent<HealthBar>();
-    }
-
-    void Start()
+    void Awake()
     {
         playersCurrentHealth = playersMaxHealth;
         playerHealthBar.SetMaxHealth(playersMaxHealth);
     }
 
-    //private void Update()
-    //{
-    //    playerHealthBar.SetPlayerHealth(PlayersCurrentHealth);
-    //}
-
     #region Properties
     public int PlayersCurrentHealth
     {
-        get { return playersMaxHealth; }
-        set { playersCurrentHealth = value; }
+        get { return playersCurrentHealth; }
     }
-
     #endregion
+
+    private void Update()
+    {
+        playerHealthBar.SetPlayerHealth(playersCurrentHealth);
+    }
 
     public void PlayerTakesDamage(int damageTaken)
     {
@@ -41,6 +34,11 @@ public class PlayerStats : MonoBehaviour
 
             playerHealthBar.SetPlayerHealth(playersCurrentHealth);
         }
+    }
+
+    public void ResetHealth()
+    {
+        playersCurrentHealth = playersMaxHealth;
     }
 
 }

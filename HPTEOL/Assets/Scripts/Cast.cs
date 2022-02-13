@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shooting : MonoBehaviour
+public class Cast : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
 

@@ -12,6 +12,7 @@ public class EscapeMenuScript : MonoBehaviour
     private void Awake()
     {
         playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+        escapeScreenIsActive = false;
     }
 
     // Update is called once per frame
@@ -22,10 +23,12 @@ public class EscapeMenuScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape) && !escapeScreenIsActive)
             {
                 PauseGame();
+                escapeScreen.SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.Escape) && escapeScreenIsActive)
             {
                 ResumeGame();
+                escapeScreen.SetActive(false);
             }
         }
     }
@@ -33,14 +36,12 @@ public class EscapeMenuScript : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        escapeScreen.SetActive(true);
         escapeScreenIsActive = true;
         playerAnimator.SetBool("GameIsPaused", true);
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        escapeScreen.SetActive(false);
         escapeScreenIsActive = false;
         playerAnimator.SetBool("GameIsPaused", false);
     }
