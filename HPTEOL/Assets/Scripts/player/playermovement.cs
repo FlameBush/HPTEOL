@@ -12,10 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal = 0f;
     private bool jump = false;
 
-    // Escapescreen support
-    public GameObject escapeScreen;
-    public GameObject settingsScreen;
-
 
     // Update is called once per frame
     void Update()
