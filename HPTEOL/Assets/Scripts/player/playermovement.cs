@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class playermovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
-    // animation support
+    // Animation support
     public Animator animator;
 
     // Movement support

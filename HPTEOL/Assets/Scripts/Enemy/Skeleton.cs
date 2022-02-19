@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+// WIP SCRIPT
 public class Skeleton : MonoBehaviour
 {
     BoxCollider2D canSeePlayer;

@@ -1,14 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+// WIP SCRIPT
 public class CanSeePlayerScript : MonoBehaviour
 {
     [SerializeField] Skeleton skeleton;
-
-    private void Awake()
-    {
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
