@@ -6,6 +6,7 @@ public class EscapeMenuScript : MonoBehaviour
 {
     public static bool escapeScreenIsActive = false;
     public GameObject escapeScreen;
+    [SerializeField] GameObject Settings;
 
     private Animator playerAnimator;
 
@@ -20,12 +21,13 @@ public class EscapeMenuScript : MonoBehaviour
     {
         if (escapeScreen != null)
         {
+
             if (Input.GetKeyDown(KeyCode.Escape) && !escapeScreenIsActive)
             {
                 PauseGame();
                 escapeScreen.SetActive(true);
             }
-            else if (Input.GetKeyDown(KeyCode.Escape) && escapeScreenIsActive)
+            else if (Input.GetKeyDown(KeyCode.Escape) && escapeScreenIsActive && !Settings.activeSelf)
             {
                 ResumeGame();
                 escapeScreen.SetActive(false);

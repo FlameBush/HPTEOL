@@ -29,7 +29,7 @@ public class playermovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
         // handle movement
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !EscapeMenuScript.escapeScreenIsActive)
         {
             jump = true;
             animator.SetBool("IsJumping", true);
