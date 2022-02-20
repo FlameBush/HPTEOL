@@ -9276,7 +9276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465953569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: -0.3989, z: 0}
+  m_LocalPosition: {x: -0.06, y: -0.426, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1769365934}
@@ -10643,10 +10643,10 @@ GameObject:
   - component: {fileID: 1769365933}
   - component: {fileID: 1769365932}
   - component: {fileID: 1769365939}
+  - component: {fileID: 1769365937}
+  - component: {fileID: 1769365935}
   - component: {fileID: 1769365941}
   - component: {fileID: 1769365938}
-  - component: {fileID: 1769365935}
-  - component: {fileID: 1769365937}
   - component: {fileID: 1769365940}
   - component: {fileID: 1769365942}
   - component: {fileID: 1769365936}
@@ -10772,7 +10772,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1769365937}
-        m_TargetAssemblyTypeName: playermovement, Assembly-CSharp
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: OnLanding
         m_Mode: 1
         m_Arguments:
