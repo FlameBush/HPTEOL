@@ -49,14 +49,6 @@ public class Death : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    if (playerhealth == 0)
-    //    {
-    //        playerdied();
-    //    }
-    //}
-
     private void PlayerDied()
     {
         diedMenu.GetComponent<DiedMenuScript>().DisplayDiedMenu();
