@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class playermovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
@@ -37,6 +37,6 @@ public class playermovement : MonoBehaviour
     void FixedUpdate()
     {
         controller.Move(horizontal * Time.fixedDeltaTime, false, jump);
-        jump = false;   
+        jump = false;
     }
 }
