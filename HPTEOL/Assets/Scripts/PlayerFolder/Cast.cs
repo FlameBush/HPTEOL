@@ -19,6 +19,7 @@ public class Cast : MonoBehaviour
     {
         if (!EscapeMenuScript.escapeScreenIsActive)
         {
+            Time.timeScale = 1;
             if (Input.GetButtonDown("Fire1") && !usedAbilityX[0])
             {
                 Shoot(spells[0]);

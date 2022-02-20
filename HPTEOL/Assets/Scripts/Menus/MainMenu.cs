@@ -6,6 +6,8 @@ public class MainMenu : MonoBehaviour
     public void PlayGame(int scene)
     {
         SceneManager.LoadScene(scene);
+        Time.timeScale = 1;
+        LeanTween.reset();
     }
 
     public void BackButton()
