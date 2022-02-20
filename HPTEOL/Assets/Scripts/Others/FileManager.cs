@@ -18,6 +18,6 @@ public class FileManager : MonoBehaviour
             Settings data = JsonConvert.DeserializeObject<Settings>(json);
             return data;
         }
-        return "I'm just going to put this here because it doesn't matter what I put here";
+        return null;
     }
 }

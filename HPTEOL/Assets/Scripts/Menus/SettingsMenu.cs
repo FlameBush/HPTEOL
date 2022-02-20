@@ -7,6 +7,9 @@ public class SettingsMenu : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private TMPro.TMP_Dropdown resolutionDropdown;
+    [SerializeField] private TMPro.TMP_Dropdown qualityDropdown;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Toggle fullscreenToggle;
 
     Resolution[] resolutions;
     private Settings sceneSettings;
@@ -20,17 +23,24 @@ public class SettingsMenu : MonoBehaviour
         List<string> options = new List<string>();
 
         ///<summary>
-        /// Updates current settings with saved settings
+        /// Try to update current settings with saved settings or set them to default
         /// </summary>
         try
         {
             Settings LoadedSets = (Settings)GameManager.GetComponent<FileManager>().LoadSettings("settings.json");
             sceneSettings = LoadedSets;
+            qualityDropdown.value = sceneSettings.quality;
+            volumeSlider.value = sceneSettings.volume;
+            fullscreenToggle.isOn = sceneSettings.fullscreen;
         }
-        catch (System.Exception)
+        catch (System.NullReferenceException)
         {
-            sceneSettings.resolution = resolutions.Length; 
-            Debug.Log("Could not find settings file");
+            sceneSettings.resolution = resolutions.Length;
+            sceneSettings.volume = 0.5f;
+            sceneSettings.quality = 0;
+            sceneSettings.fullscreen = true;
+            RefreshSettings();
+            GameManager.GetComponent<FileManager>().SaveData("settings.json", sceneSettings);
         }
 
         ///<summary>
@@ -90,5 +100,13 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
         sceneSettings.fullscreen = isFullscreen;
         GameManager.GetComponent<FileManager>().SaveData("settings.json", sceneSettings);
+    }
+
+    public void RefreshSettings()
+    {
+        resolutionDropdown.value = sceneSettings.resolution;
+        qualityDropdown.value = sceneSettings.quality;
+        volumeSlider.value = sceneSettings.volume;
+        fullscreenToggle.isOn = sceneSettings.fullscreen;
     }
 }
