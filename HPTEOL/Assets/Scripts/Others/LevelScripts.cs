@@ -8,9 +8,9 @@ public class LevelScripts : MonoBehaviour
     {
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
         print(currentLevel);
-        if (currentLevel >= PlayerPrefs.GetInt("LevelsUnlocked"))
+        if (currentLevel >= PlayerPrefs.GetInt("levelsUnlocked"))
         {
-            PlayerPrefs.SetInt("LevelsUnlocked", currentLevel + 1);
+            PlayerPrefs.SetInt("levelsUnlocked", currentLevel + 1);
         }
     }
 }
