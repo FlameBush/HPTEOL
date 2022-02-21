@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FileManager : MonoBehaviour
 {
-    public void SaveSettings(string filename, Settings data)
+    public void SaveSettings(Settings data)
     {
         PlayerPrefs.SetFloat("MasterVol", data.volume);
         PlayerPrefs.SetInt("Resolution", data.resolution);
@@ -10,7 +10,7 @@ public class FileManager : MonoBehaviour
         PlayerPrefs.SetInt("Fullscreen", data.fullscreen);
     }
 
-    public object LoadSettings(string settingsfile)
+    public object LoadSettings()
     {
         Settings data = new Settings
         {

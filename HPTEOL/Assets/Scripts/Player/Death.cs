@@ -11,8 +11,7 @@ public class Death : MonoBehaviour
     [SerializeField] EscapeMenuScript escapeMenuScript;
 
     // support respawning
-    [SerializeField] private Transform SpawningPoint;
-    int playerHealth;
+    public Transform SpawningPoint;
 
     // to avoid a glitch I encountered
     bool previousTimeHitWorldEdgeTrigger = false;
@@ -22,9 +21,12 @@ public class Death : MonoBehaviour
         player = GetComponent<PlayerStats>();
     }
 
-    private void Start()
+    private void Update()
     {
-        playerHealth = player.PlayersCurrentHealth;
+        if (player.PlayersCurrentHealth <= 0)
+        {
+            PlayerDied();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -36,11 +38,6 @@ public class Death : MonoBehaviour
             {
                 transform.position = SpawningPoint.position;
                 player.PlayerTakesDamage(50);
-                playerHealth = player.PlayersCurrentHealth;
-                if (playerHealth <= 0)
-                {
-                    PlayerDied();
-                }
             }
         }
         else
@@ -51,6 +48,7 @@ public class Death : MonoBehaviour
 
     private void PlayerDied()
     {
+        player.gameObject.SetActive(false);
         diedMenu.GetComponent<DiedMenuScript>().DisplayDiedMenu();
         escapeMenuScript.GetComponent<EscapeMenuScript>().PauseGame();
     }

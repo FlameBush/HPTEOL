@@ -39,6 +39,7 @@ public class PlayerStats : MonoBehaviour
     public void ResetHealth()
     {
         playersCurrentHealth = playersMaxHealth;
+        gameObject.transform.position = gameObject.GetComponent<Death>().SpawningPoint.position;
     }
 
 }

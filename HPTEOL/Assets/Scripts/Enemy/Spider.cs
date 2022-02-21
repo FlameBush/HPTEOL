@@ -1,70 +1,90 @@
 using UnityEngine;
 
-// WIP Script
-// WIP stands for?
-
 public class Spider : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb; //Rigidbody for Sipder.
-    [SerializeField] Transform StartPosition, EndPosition; //Start and end position in which the spider would move.
-    float distA, distB;
-    // Update is called once per frame
-    void Update()
+    [SerializeField] float moveSpeed;
+    [SerializeField] Transform StartBounds, EndBounds;
+
+    private bool MoveRight;
+    private GameObject Player;
+
+    private void Start()
     {
-        distA = Vector2.Distance(transform.position, StartPosition.position);
-        distB = Vector2.Distance(transform.position, EndPosition.position);
+        Player = GameObject.FindWithTag("Player");
+    }
+
+    private void FixedUpdate()
+    {
         if (groundCheck())
         {
-            move();
+            Roam();
         }
     }
 
-
-    [Range(0f,10f)]
-    [SerializeField] float speed;
-    private bool goRight = true;
     /// <summary>
-    /// this function is used to move the enemy left or right.
+    /// This put's the spider in the roam state where he moves randomly within his bounds.
     /// </summary>
-    void move()
+    private void Roam()
     {
-        if (goRight)
+        if (MoveRight)
         {
-            transform.position = Vector3.MoveTowards(transform.position,EndPosition.position,speed*Time.deltaTime);
-            if (distB < 1)
+            transform.position = Vector2.MoveTowards(transform.position, EndBounds.position, moveSpeed * Time.deltaTime);
+            if (Random.Range(0, 100) > 98)
             {
-                goRight = false;
+                MoveRight = false;
             }
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position,StartPosition.position,speed*Time.deltaTime);
-            if (distA < 1)
+            transform.position = Vector2.MoveTowards(transform.position, StartBounds.position, moveSpeed * Time.deltaTime);
+            if (Random.Range(0, 100) > 98)
             {
-                goRight = true;
+                MoveRight = true;
             }
         }
     }
 
-
-    [SerializeField] float k_GroundedRadius;
-    [SerializeField] private LayerMask m_WhatIsGround;
-    bool groundCheck()
+    /// <summary>
+    /// This put's the spider in the state where he target's the player.
+    /// </summary>
+    private void Target()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
+        transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, moveSpeed * Time.deltaTime);
+    }
+
+    [SerializeField] private LayerMask m_WhatIsGround;
+
+    /// <summary>
+    /// Whether or not the spider is touching the ground.
+    /// </summary>
+    /// <returns>True or False depending on if spider is touching ground</returns>
+    private bool groundCheck()
+    {
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.1f, m_WhatIsGround);
+        if (collider != null)
         {
-            if (colliders[i].gameObject != gameObject)
-            {
-                return true;
-            }
+            return true;
         }
         return false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyEndOfWorld"))
+        {
+            if (MoveRight)
+            {
+                MoveRight = false;
+            } else
+            {
+                MoveRight = true;
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, k_GroundedRadius);
+        Gizmos.DrawSphere(transform.position, 0.1f);
     }
 }

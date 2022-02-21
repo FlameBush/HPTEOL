@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - End of World
   - Enemy
+  - EnemyEndOfWorld
   layers:
   - Default
   - TransparentFX
