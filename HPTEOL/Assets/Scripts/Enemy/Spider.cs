@@ -1,17 +1,16 @@
 using UnityEngine;
 
+// WIP Script
+
 public class Spider : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb; //Rigidbody for Sipder.
     [SerializeField] Transform StartPosition, EndPosition; //Start and end position in which the spider would move.
-    [SerializeField] bool grounded; //to check whether the spider is grounded.
-
 
     // Update is called once per frame
     void Update()
     {
-        groundCheck();
-        if (grounded)
+        if (groundCheck())
         {
             move();
         }
@@ -29,15 +28,17 @@ public class Spider : MonoBehaviour
     //RaycastHit2D hit;
     [SerializeField] float k_GroundedRadius;
     [SerializeField] private LayerMask m_WhatIsGround;
-    void groundCheck()
+    bool groundCheck()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
-                grounded = true;
+            {
+                return true;
+            }
         }
-
+        return false;
 
         //hit = Physics2D.Raycast(transform.position, Vector2.down,groundCheckLength);
         ////Debug.Log(hit.collider.gameObject.name);
