@@ -383,6 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b6f15e164ab884595b642ca16469cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menusCanvas: {fileID: 0}
+  gameCanvas: {fileID: 0}
 --- !u!114 &44341295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10136,8 +10138,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1839259453}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: BackButton
-        m_Mode: 1
+        m_MethodName: PlayGame
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
