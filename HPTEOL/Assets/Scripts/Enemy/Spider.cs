@@ -1,15 +1,18 @@
 using UnityEngine;
 
 // WIP Script
+// WIP stands for?
 
 public class Spider : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb; //Rigidbody for Sipder.
     [SerializeField] Transform StartPosition, EndPosition; //Start and end position in which the spider would move.
-
+    float distA, distB;
     // Update is called once per frame
     void Update()
     {
+        distA = Vector2.Distance(transform.position, StartPosition.position);
+        distB = Vector2.Distance(transform.position, EndPosition.position);
         if (groundCheck())
         {
             move();
@@ -19,13 +22,31 @@ public class Spider : MonoBehaviour
 
     [Range(0f,10f)]
     [SerializeField] float speed;
+    private bool goRight = true;
+    /// <summary>
+    /// this function is used to move the enemy left or right.
+    /// </summary>
     void move()
     {
-        transform.position += (StartPosition.position*speed*Time.deltaTime);
+        if (goRight)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,EndPosition.position,speed*Time.deltaTime);
+            if (distB < 1)
+            {
+                goRight = false;
+            }
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position,StartPosition.position,speed*Time.deltaTime);
+            if (distA < 1)
+            {
+                goRight = true;
+            }
+        }
     }
 
 
-    //RaycastHit2D hit;
     [SerializeField] float k_GroundedRadius;
     [SerializeField] private LayerMask m_WhatIsGround;
     bool groundCheck()
@@ -39,22 +60,11 @@ public class Spider : MonoBehaviour
             }
         }
         return false;
-
-        //hit = Physics2D.Raycast(transform.position, Vector2.down,groundCheckLength);
-        ////Debug.Log(hit.collider.gameObject.name);
-        //if (hit.collider.gameObject.CompareTag("Floor"))
-        //{
-        //    Debug.Log("On Floor");
-        //    grounded = true;
-        //}
-        //else
-        //    grounded = false;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, k_GroundedRadius);
-
     }
 }
