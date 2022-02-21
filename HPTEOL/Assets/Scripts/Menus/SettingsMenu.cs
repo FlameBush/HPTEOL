@@ -75,7 +75,7 @@ public class SettingsMenu : MonoBehaviour
     /// <param name="volume"></param>
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("Volume1", volume);
+        audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
         sceneSettings.volume = volume;
         GameManager.GetComponent<FileManager>().SaveData("settings.json", sceneSettings);
     }

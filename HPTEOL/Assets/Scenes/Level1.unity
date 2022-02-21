@@ -2509,6 +2509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b6f15e164ab884595b642ca16469cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menusCanvas: {fileID: 0}
+  gameCanvas: {fileID: 0}
 --- !u!114 &458552786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2727,7 +2729,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6955,7 +6957,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 284583294}
   m_HandleRect: {fileID: 128865565}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
