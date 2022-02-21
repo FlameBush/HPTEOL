@@ -1,23 +1,24 @@
 using UnityEngine;
-using Newtonsoft.Json;
-using System.IO;
 
 public class FileManager : MonoBehaviour
 {
-    public void SaveData(string filename, object data)
+    public void SaveSettings(string filename, Settings data)
     {
-        string json = JsonConvert.SerializeObject(data, Formatting.Indented);
-        File.WriteAllText($"{Application.persistentDataPath}\\{filename}", json);
+        PlayerPrefs.SetFloat("MasterVol", data.volume);
+        PlayerPrefs.SetInt("Resolution", data.resolution);
+        PlayerPrefs.SetInt("Quality", data.quality);
+        PlayerPrefs.SetInt("Fullscreen", data.fullscreen);
     }
 
     public object LoadSettings(string settingsfile)
     {
-        if(File.Exists($"{Application.persistentDataPath}\\{settingsfile}"))
+        Settings data = new Settings
         {
-            string json = File.ReadAllText($"{Application.persistentDataPath}\\{settingsfile}");
-            Settings data = JsonConvert.DeserializeObject<Settings>(json);
-            return data;
-        }
-        return null;
+            fullscreen = PlayerPrefs.GetInt("Fullscreen"),
+            resolution = PlayerPrefs.GetInt("Resolution"),
+            quality = PlayerPrefs.GetInt("Quality"),
+            volume = PlayerPrefs.GetFloat("MasterVol")
+        };
+        return data;
     }
 }
