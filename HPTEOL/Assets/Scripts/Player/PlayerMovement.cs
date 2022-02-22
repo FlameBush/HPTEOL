@@ -9,17 +9,30 @@ public class PlayerMovement : MonoBehaviour
 
     // Movement support
     [SerializeField] private float runSpeed = 40f;
+    public float sprintSpeed = 60f;
     private float horizontal = 0f;
     private bool jump = false;
+    private float running = 0;
 
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal") * runSpeed;
+        if (Input.GetButton("sprint"))
+        {
+            running = sprintSpeed;
+        }
+        else
+        {
+            running = runSpeed;
+        }
+
+        horizontal = Input.GetAxisRaw("Horizontal") * running;
 
         // handle animation
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
+
 
         // handle movement
         if (Input.GetButtonDown("Jump") && !EscapeMenuScript.escapeScreenIsActive)
