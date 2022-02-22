@@ -21,11 +21,6 @@ public class PlayerStats : MonoBehaviour
     }
     #endregion
 
-    private void Update()
-    {
-        playerHealthBar.SetPlayerHealth(playersCurrentHealth);
-    }
-
     public void PlayerTakesDamage(int damageTaken)
     {
         if (PlayersCurrentHealth >= 0)
@@ -40,6 +35,7 @@ public class PlayerStats : MonoBehaviour
     {
         playersCurrentHealth = playersMaxHealth;
         gameObject.transform.position = gameObject.GetComponent<Death>().SpawningPoint.position;
+        playerHealthBar.SetPlayerHealth(playersCurrentHealth);
     }
 
 }

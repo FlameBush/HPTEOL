@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    private float speed = 65f;
+    [SerializeField] float speed = 65f;
+    public int damage = 50;
     private Rigidbody2D rb2d;
     private Animator bulletAnimtor;
 
@@ -13,7 +14,6 @@ public class Spell : MonoBehaviour
         
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         rb2d.velocity = transform.right * speed;

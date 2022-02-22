@@ -8,6 +8,7 @@ TagManager:
   - End of World
   - Enemy
   - EnemyEndOfWorld
+  - Spell
   layers:
   - Default
   - TransparentFX
