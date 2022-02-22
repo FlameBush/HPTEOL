@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
-    [Header("Stats")]
+    [Header("Pathfinding")]
+    [Range(0f, 100f)]
+    [SerializeField] float RandomTurnChance = 2;
+    [SerializeField] Transform StartBounds, EndBounds;
+    [Header("Base Stats")]
     [Range(1f, 20f)]
     [SerializeField] float moveSpeed = 4;
     [Range(1f, 155f)]
@@ -11,13 +15,9 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField] int viewDistance = 6;
     [Range(0f, 100f)]
     [SerializeField] int attackDamage = 20;
-    [Header("Pathfinding")]
-    [Range(0f, 100f)]
-    [SerializeField] float RandomTurnChance = 2;
-    [SerializeField] Transform StartBounds, EndBounds;
 
     private bool MoveRight;
-    private Transform Player;
+    [HideInInspector] public Transform Player;
     private bool DamageTimeout;
     private RaycastHit2D Seeing;
     private int State;

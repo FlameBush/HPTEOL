@@ -1071,7 +1071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181767924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.11, y: 5, z: 0}
+  m_LocalPosition: {x: 20.2, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1089,16 +1089,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ea191370905574c8ecb6c3efebe290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RandomTurnChance: 2
+  StartBounds: {fileID: 1383967024}
+  EndBounds: {fileID: 234025736}
   moveSpeed: 4
   Health: 100
   viewDistance: 6
   attackDamage: 20
-  RandomTurnChance: 2
-  StartBounds: {fileID: 1383967024}
-  EndBounds: {fileID: 234025736}
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
+  JumpChance: 100
+  JumpPower: 5
 --- !u!50 &181767927
 Rigidbody2D:
   serializedVersion: 4
@@ -3722,7 +3724,7 @@ GameObject:
   - component: {fileID: 687540764}
   m_Layer: 6
   m_Name: Ceiling
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9319,7 +9321,7 @@ GameObject:
   - component: {fileID: 1406198933}
   m_Layer: 3
   m_Name: FirePoint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9462,7 +9464,7 @@ GameObject:
   - component: {fileID: 1465953570}
   m_Layer: 6
   m_Name: Ground
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
