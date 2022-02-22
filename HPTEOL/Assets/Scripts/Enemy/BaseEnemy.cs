@@ -17,23 +17,29 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField] Transform StartBounds, EndBounds;
 
     private bool MoveRight;
-    private GameObject Player;
+    private Transform Player;
     private bool DamageTimeout;
+    private RaycastHit2D Seeing;
+    private int State;
 
     private void Start()
     {
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindWithTag("Player").transform;
     }
 
     private void FixedUpdate()
     {
-        RaycastHit2D Eyes = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), viewDistance);
-        if (Eyes.transform.CompareTag("Player"))
+        Seeing = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), viewDistance, 8);
+        if (Seeing.transform != null && Seeing.transform.CompareTag("Player"))
         {
-            Debug.Log("Player seen");
+            State = 1;
+        }
+
+        if (State == 1 && groundCheck())
+        {
             Target();
         }
-        else if (groundCheck())
+        else if (State == 0 && groundCheck())
         {
             Roam();
         }
@@ -75,7 +81,7 @@ public class BaseEnemy : MonoBehaviour
     /// </summary>
     public virtual void Target()
     {
-        transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, Player.position, moveSpeed * Time.deltaTime);
     }
 
     [SerializeField] private LayerMask m_WhatIsGround;
