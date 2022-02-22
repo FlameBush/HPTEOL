@@ -73,3 +73,6 @@ crashlytics-build.properties
 *.log
 *.log
 *.log
+
+# Mac people be like
+*.DS_Store
