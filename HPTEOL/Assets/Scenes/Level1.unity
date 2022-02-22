@@ -1096,11 +1096,13 @@ MonoBehaviour:
   Health: 100
   viewDistance: 6
   attackDamage: 20
+  Player: {fileID: 0}
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
   JumpChance: 100
-  JumpPower: 5
+  JumpPower: 6
+  JumpLeap: 6
 --- !u!50 &181767927
 Rigidbody2D:
   serializedVersion: 4
