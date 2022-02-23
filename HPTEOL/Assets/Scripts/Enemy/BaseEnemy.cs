@@ -27,7 +27,7 @@ public class BaseEnemy : MonoBehaviour
     public virtual void Start()
     {
         Player = GameObject.FindWithTag("Player").transform;
-        sprite = Player.GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     public virtual void FixedUpdate()
@@ -66,6 +66,7 @@ public class BaseEnemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, EndBounds.position, moveSpeed * Time.deltaTime);
             if (Random.Range(0, 100) < RandomTurnChance)
             {
+                sprite.flipX = false;
                 MoveRight = false;
             }
         }
@@ -74,6 +75,7 @@ public class BaseEnemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, StartBounds.position, moveSpeed * Time.deltaTime);
             if (Random.Range(0, 100) < RandomTurnChance)
             {
+                sprite.flipX = true;
                 MoveRight = true;
             }
         }
@@ -84,7 +86,14 @@ public class BaseEnemy : MonoBehaviour
     /// </summary>
     public virtual void Target()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Player.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, transform.position.y), moveSpeed * Time.deltaTime);
+        if (Player.position.x > transform.position.x)
+        {
+            sprite.flipX = true;
+        } else
+        {
+            sprite.flipX = false;
+        }
     }
 
     [SerializeField] private LayerMask m_WhatIsGround;

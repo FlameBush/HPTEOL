@@ -37,7 +37,10 @@ public class PlayerMovement : MonoBehaviour
             animator.Play("Spinny");
         }
 
-        animator.SetFloat("Moving", Mathf.Abs(horizontal));
+        if (!EscapeMenuScript.escapeScreenIsActive)
+        {
+            animator.SetFloat("Moving", Mathf.Abs(horizontal));
+        }
     }
 
     private void FixedUpdate()

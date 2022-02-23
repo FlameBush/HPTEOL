@@ -5,17 +5,11 @@ using UnityEngine.UI;
 
 public class Death : MonoBehaviour
 {
-    // other classes
-    PlayerStats player;
+    private PlayerStats player;
     [SerializeField] DiedMenuScript diedMenu;
     [SerializeField] EscapeMenuScript escapeMenuScript;
-
-    // support respawning
     public Transform SpawningPoint;
 
-    // to avoid a glitch I encountered
-    bool previousTimeHitWorldEdgeTrigger = false;
-    
     private void Awake()
     {
         player = GetComponent<PlayerStats>();
@@ -31,18 +25,10 @@ public class Death : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (!previousTimeHitWorldEdgeTrigger)
+        if (collider.tag == "End of World")
         {
-            previousTimeHitWorldEdgeTrigger = true;
-            if (collider.tag == "End of World")
-            {
-                transform.position = SpawningPoint.position;
-                player.PlayerTakesDamage(50);
-            }
-        }
-        else
-        {
-            previousTimeHitWorldEdgeTrigger = false;
+            transform.position = SpawningPoint.position;
+            player.PlayerTakesDamage(50);
         }
     }
 
