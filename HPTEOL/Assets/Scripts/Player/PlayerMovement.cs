@@ -37,12 +37,12 @@ public class PlayerMovement : MonoBehaviour
             animator.Play("Spinny");
         }
 
-        horizontal = Input.GetAxisRaw("Horizontal") * currentSpeed;
         animator.SetFloat("Moving", Mathf.Abs(horizontal));
     }
 
     private void FixedUpdate()
     {
+        horizontal = Input.GetAxisRaw("Horizontal") * currentSpeed;
         controller.Move(horizontal * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
