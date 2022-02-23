@@ -22,13 +22,15 @@ public class BaseEnemy : MonoBehaviour
     private bool DamageTimeout;
     private RaycastHit2D Seeing;
     private int State;
+    private SpriteRenderer sprite;
 
-    private void Start()
+    public virtual void Start()
     {
         Player = GameObject.FindWithTag("Player").transform;
+        sprite = Player.GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         Seeing = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), viewDistance, 8);
         if (Seeing.transform != null && Seeing.transform.CompareTag("Player") && State != -1)
@@ -101,16 +103,18 @@ public class BaseEnemy : MonoBehaviour
         return false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EnemyEndOfWorld"))
         {
             if (MoveRight)
             {
+                sprite.flipX = false;
                 MoveRight = false;
             }
             else
             {
+                sprite.flipX = true;
                 MoveRight = true;
             }
         }
