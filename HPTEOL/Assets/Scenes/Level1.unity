@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1769365934}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -673,7 +673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132844065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0000005, y: 5.252, z: -10}
+  m_LocalPosition: {x: -6, y: 6.216, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1028896635}
@@ -1072,7 +1072,7 @@ Transform:
   m_GameObject: {fileID: 181767924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.2, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1115,14 +1115,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 2.372236
+  m_Mass: 0.593059
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 5
 --- !u!61 &181767928
 BoxCollider2D:
@@ -1133,7 +1133,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 181767924}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1eecdd71f086585478db934352054fa5, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1159,7 +1159,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 181767924}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1eecdd71f086585478db934352054fa5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1175,7 +1175,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.9652653, y: 2.048}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.001
 --- !u!212 &181767931
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3160,7 +3160,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3184,7 +3184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0000005, y: 5.252, z: -10}
+  m_LocalPosition: {x: -6, y: 6.216, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 359411184}
@@ -5995,7 +5995,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736667797}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 71525cd035b951142a360c31eb46efc5, type: 2}
   m_CullingMode: 0
@@ -11311,7 +11311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769365931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 5, z: 0}
+  m_LocalPosition: {x: -6, y: 6, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 687540764}
@@ -11389,6 +11389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 45
   sprintSpeed: 60
+  horizontal: 0
 --- !u!95 &1769365938
 Animator:
   serializedVersion: 3
@@ -11417,7 +11418,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1769365931}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1eecdd71f086585478db934352054fa5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11433,7 +11434,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.25196996}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.001
 --- !u!114 &1769365940
 MonoBehaviour:
   m_ObjectHideFlags: 0

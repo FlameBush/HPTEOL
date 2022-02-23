@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class BaseEnemy : MonoBehaviour
     private void FixedUpdate()
     {
         Seeing = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), viewDistance, 8);
-        if (Seeing.transform != null && Seeing.transform.CompareTag("Player"))
+        if (Seeing.transform != null && Seeing.transform.CompareTag("Player") && State != -1)
         {
             State = 1;
         }
@@ -119,19 +120,36 @@ public class BaseEnemy : MonoBehaviour
             Health -= collision.GetComponent<Spell>().damage;
             Destroy(collision.gameObject);
         }
+    }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (collision.CompareTag("Player") && !DamageTimeout)
         {
             collision.GetComponent<PlayerStats>().PlayerTakesDamage(attackDamage);
-            DamageTimeout = true;
+            StartCoroutine(DamageCooldown());
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    /// <summary>
+    /// Puts enemy on a damage cooldown.
+    /// </summary>
+    /// <returns></returns>
+    private bool cooldown;
+    public virtual IEnumerator DamageCooldown()
     {
-        if (collision.CompareTag("Player"))
+        var damage = attackDamage;
+        if (!cooldown)
         {
-            DamageTimeout = false;
+            var state = State;
+            State = -1;
+            attackDamage = 0;
+            cooldown = true;
+            yield return new WaitForSeconds(0.5f);
+            State = state;
+            yield return new WaitForSeconds(0.5f);
+            attackDamage = damage;
+            cooldown = false;
         }
     }
 }

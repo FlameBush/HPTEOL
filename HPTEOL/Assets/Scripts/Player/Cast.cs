@@ -55,6 +55,7 @@ public class Cast : MonoBehaviour
     /// <param name="time"></param>
     private void AnimatingAbilitySymbol(Image abilityImage)
     {
+        LeanTween.init(800, 800);
         abilityImage.transform.LeanScale(new Vector2(0.8f, 0.8f), 0.125f);
         abilityImage.transform.GetChild(2).gameObject.LeanMoveLocalY(-125, 0);
     }
