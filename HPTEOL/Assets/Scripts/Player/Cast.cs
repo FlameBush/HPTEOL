@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +13,14 @@ public class Cast : MonoBehaviour
 
     private const int maxBullets = 2;
     private int currentBulletNumber;
+    private PlayerMovement movement;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        movement = GetComponent<PlayerMovement>();
+    }
+
+    private void Update()
     {
         if (!EscapeMenuScript.escapeScreenIsActive)
         {
@@ -70,8 +75,13 @@ public class Cast : MonoBehaviour
         usedAbilityX[i] = false;
     }
 
-    private void Shoot(GameObject prefab)
+    /// <summary>
+    /// Fires the "spell"
+    /// </summary>
+    /// <param name="spell"></param>
+    private void Shoot(GameObject spell)
     {
-        Instantiate<GameObject>(prefab, firePoint.position, firePoint.rotation);
+        Instantiate<GameObject>(spell, firePoint.position, firePoint.rotation);
+        movement.OnSpellShoot();
     }
 }

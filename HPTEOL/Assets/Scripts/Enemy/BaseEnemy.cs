@@ -92,7 +92,7 @@ public class BaseEnemy : MonoBehaviour
     /// <returns>True or False depending on if enemy is touching ground</returns>
     private bool groundCheck()
     {
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.1f, m_WhatIsGround);
+        Collider2D collider = Physics2D.OverlapBox(transform.position, new Vector2(0.1f, 0.1f), m_WhatIsGround);
         if (collider != null)
         {
             return true;

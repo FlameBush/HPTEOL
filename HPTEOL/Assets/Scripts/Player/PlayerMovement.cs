@@ -2,54 +2,71 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Stats")]
+    [Range(0f, 50f)]
+    [SerializeField] float runSpeed = 40f;
+    [Range(0f, 100f)]
+    [SerializeField] float sprintSpeed = 60f;
 
-    public CharacterController2D controller;
-    // Animation support
-    public Animator animator;
+    private CharacterController2D controller;
+    private Animator animator;
+    [HideInInspector] public float horizontal;
+    private bool jump;
+    private float currentSpeed;
 
-    // Movement support
-    [SerializeField] private float runSpeed = 40f;
-    public float sprintSpeed = 60f;
-    private float horizontal = 0f;
-    private bool jump = false;
-    private float running = 0;
-
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetButton("sprint"))
+        animator = GetComponent<Animator>();
+        controller = GetComponent<CharacterController2D>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButton("Sprint"))
         {
-            running = sprintSpeed;
+            currentSpeed = sprintSpeed;
         }
         else
         {
-            running = runSpeed;
+            currentSpeed = runSpeed;
         }
 
-        horizontal = Input.GetAxisRaw("Horizontal") * running;
-
-        // handle animation
-        animator.SetFloat("Speed", Mathf.Abs(horizontal));
-
-
-
-        // handle movement
         if (Input.GetButtonDown("Jump") && !EscapeMenuScript.escapeScreenIsActive)
         {
             jump = true;
-            animator.SetBool("IsJumping", true);
+            animator.Play("Spinny");
         }
+
+        horizontal = Input.GetAxisRaw("Horizontal") * currentSpeed;
+        animator.SetFloat("Moving", Mathf.Abs(horizontal));
     }
 
-    public void OnLanding()
-    {
-        animator.SetBool("IsJumping", false);
-    }
-
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         controller.Move(horizontal * Time.fixedDeltaTime, false, jump);
         jump = false;
+    }
+
+    /// <summary>
+    /// Triggered when player touches the ground.
+    /// </summary>
+    public void OnLanding()
+    {
+        animator.Play("Idle");
+    }
+
+    /// <summary>
+    /// Triggered when a spell spawns.
+    /// </summary>
+    public void OnSpellShoot()
+    {
+        var walking = Mathf.Abs(horizontal) > 0;
+        if (walking)
+        {
+            animator.Play("AttackMoving");
+        } else
+        {
+            animator.Play("AttackIdle");
+        }
     }
 }
