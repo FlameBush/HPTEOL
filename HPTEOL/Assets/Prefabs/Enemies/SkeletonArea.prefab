@@ -133,7 +133,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.5416667, y: 1.1877648}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.01
 --- !u!61 &2265440763384807208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,14 +180,19 @@ MonoBehaviour:
   Health: 100
   viewDistance: 6
   attackDamage: 20
+  Flying: 0
+  Animations:
+  - Moving
+  - Melee
+  - Idle
+  - IdleDeath
   Player: {fileID: 0}
   DamageTimeout: 0
+  DamageTimeoutE: 0
   firstSpeed: 0
   rb: {fileID: 0}
   animator: {fileID: 0}
   moving: 0
-  Animation: Moving
-  FlameChance: 6
 --- !u!95 &7279475974767596347
 Animator:
   serializedVersion: 3

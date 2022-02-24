@@ -58,12 +58,6 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).fullPathHash);
-        }
-
         Seeing = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), viewDistance, 8);
         if (Seeing.transform != null && Seeing.transform.CompareTag("Player") && State != -1)
         {
@@ -126,6 +120,7 @@ public class BaseEnemy : MonoBehaviour
     /// </summary>
     public virtual void Target()
     {
+        moving = true;
         if (Flying)
         {
             rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, Player.position.y + 1f), moveSpeed * Time.fixedDeltaTime));
@@ -134,7 +129,7 @@ public class BaseEnemy : MonoBehaviour
         {
             rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, transform.position.y), moveSpeed * Time.fixedDeltaTime));
         }
-        moving = true;
+
         if (Player.position.x > transform.position.x)
         {
             sprite.flipX = true;
@@ -222,17 +217,25 @@ public class BaseEnemy : MonoBehaviour
     /// <summary>
     /// Makes the enemy die.
     /// </summary>
-    /// <returns></returns>
     public virtual void Die()
     {
         for (int i = 0; i < Animations.Length; i++)
         {
+
             if (Animations[i] == "Death")
             {
                 State = -1;
                 moving = false;
                 moveSpeed = 20;
                 animator.Play("Death");
+                Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+            }
+            else if (Animations[i] == "IdleDeath")
+            {
+                State = -1;
+                moving = false;
+                moveSpeed = 0;
+                animator.Play("Idle");
                 Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
             }
             else if (Animations[i] == "NoDeath")
