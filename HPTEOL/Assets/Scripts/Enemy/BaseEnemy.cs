@@ -17,6 +17,9 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField] int viewDistance = 6;
     [Range(0f, 100f)]
     [SerializeField] int attackDamage = 20;
+    [Header("Settings")]
+    public bool Flying;
+    public string[] Animations = {"Moving", "Idle",};
 
     [HideInInspector] public Transform Player;
     [HideInInspector] public bool DamageTimeout;
@@ -24,7 +27,6 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public Animator animator;
     [HideInInspector] public bool moving;
-    [HideInInspector] public string Animation = "Moving";
     private RaycastHit2D Seeing;
     private SpriteRenderer sprite;
 
@@ -35,7 +37,10 @@ public class BaseEnemy : MonoBehaviour
         firstSpeed = moveSpeed;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        animator.Play("Moving");
+        if (Animations[0] == "Moving" || Animations[0] == "Idle")
+        {
+            animator.Play(Animations[0]);
+        }
     }
 
     public virtual void FixedUpdate()
@@ -99,7 +104,13 @@ public class BaseEnemy : MonoBehaviour
     /// </summary>
     public virtual void Target()
     {
-        rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, transform.position.y), moveSpeed * Time.fixedDeltaTime));
+        if (Flying)
+        {
+            rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, Player.position.y - 0.5f), moveSpeed * Time.fixedDeltaTime));
+        } else
+        {
+            rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, transform.position.y), moveSpeed * Time.fixedDeltaTime));
+        }
         moving = true;
         if (Player.position.x > transform.position.x)
         {
@@ -150,7 +161,13 @@ public class BaseEnemy : MonoBehaviour
         {
             Player.GetComponent<PlayerStats>().PlayerTakesDamage(attackDamage);
             moving = false;
-            animator.Play("Melee");
+            for (int i = 0; i < Animations.Length; i++)
+            {
+                if (Animations[i] == "Melee")
+                {
+                    animator.Play(Animations[i]);
+                }
+            }
             var damage = attackDamage;
             moveSpeed = 0;
             attackDamage = 0;
