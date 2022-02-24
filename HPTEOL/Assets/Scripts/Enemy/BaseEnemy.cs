@@ -232,17 +232,13 @@ public class BaseEnemy : MonoBehaviour
                 State = -1;
                 moving = false;
                 moveSpeed = 20;
-                animator.Play(Animations[i]);
+                animator.Play("Death");
+                Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
             }
             else if (Animations[i] == "NoDeath")
             {
                 Destroy(gameObject);
             }
-        }
-
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-        {
-            Destroy(gameObject);
         }
     }
 }
