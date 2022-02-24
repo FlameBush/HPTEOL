@@ -19,10 +19,11 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField] int attackDamage = 20;
     [Header("Settings")]
     public bool Flying;
-    public string[] Animations = {"Moving", "Idle",};
+    public string[] Animations = { "Moving", "Idle", "Death", "Melee" };
 
     [HideInInspector] public Transform Player;
     [HideInInspector] public bool DamageTimeout;
+    [HideInInspector] public bool DamageTimeoutE;
     [HideInInspector] public float firstSpeed;
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public Animator animator;
@@ -57,6 +58,12 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).fullPathHash);
+        }
+
         Seeing = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), viewDistance, 8);
         if (Seeing.transform != null && Seeing.transform.CompareTag("Player") && State != -1)
         {
@@ -70,7 +77,8 @@ public class BaseEnemy : MonoBehaviour
 
         if (Health <= 0)
         {
-            Destroy(gameObject);
+            Health = 1000;
+            Die();
         }
     }
 
@@ -81,7 +89,14 @@ public class BaseEnemy : MonoBehaviour
     {
         if (sprite.flipX)
         {
-            rb.MovePosition(Vector2.MoveTowards(transform.position, EndBounds.position, moveSpeed * Time.fixedDeltaTime));
+            if (Flying)
+            {
+                rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(EndBounds.position.x, transform.position.y + 1), moveSpeed * Time.fixedDeltaTime));
+            }
+            else
+            {
+                rb.MovePosition(Vector2.MoveTowards(transform.position, EndBounds.position, moveSpeed * Time.fixedDeltaTime));
+            }
             moving = true;
             if (Random.Range(0, 100) < RandomTurnChance)
             {
@@ -90,7 +105,14 @@ public class BaseEnemy : MonoBehaviour
         }
         else
         {
-            rb.MovePosition(Vector2.MoveTowards(transform.position, StartBounds.position, moveSpeed * Time.fixedDeltaTime));
+            if (Flying)
+            {
+                rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(StartBounds.position.x, transform.position.y + 1), moveSpeed * Time.fixedDeltaTime));
+            }
+            else
+            {
+                rb.MovePosition(Vector2.MoveTowards(transform.position, StartBounds.position, moveSpeed * Time.fixedDeltaTime));
+            }
             moving = true;
             if (Random.Range(0, 100) < RandomTurnChance)
             {
@@ -106,8 +128,9 @@ public class BaseEnemy : MonoBehaviour
     {
         if (Flying)
         {
-            rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, Player.position.y - 0.5f), moveSpeed * Time.fixedDeltaTime));
-        } else
+            rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, Player.position.y + 1f), moveSpeed * Time.fixedDeltaTime));
+        }
+        else
         {
             rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(Player.position.x, transform.position.y), moveSpeed * Time.fixedDeltaTime));
         }
@@ -138,8 +161,8 @@ public class BaseEnemy : MonoBehaviour
 
         if (collision.CompareTag("Spell"))
         {
-            Health -= collision.GetComponent<Spell>().damage;
             Destroy(collision.gameObject);
+            StartCoroutine(DamageSelf(collision.gameObject.GetComponent<Spell>().damage));
         }
     }
 
@@ -166,6 +189,7 @@ public class BaseEnemy : MonoBehaviour
                 if (Animations[i] == "Melee")
                 {
                     animator.Play(Animations[i]);
+                    break;
                 }
             }
             var damage = attackDamage;
@@ -177,6 +201,48 @@ public class BaseEnemy : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             attackDamage = damage;
             DamageTimeout = false;
+        }
+    }
+
+    /// <summary>
+    /// Damages own enemy.
+    /// </summary>
+    /// <returns></returns>
+    public virtual IEnumerator DamageSelf(int spelldamage)
+    {
+        if (!DamageTimeoutE)
+        {
+            Health -= spelldamage;
+            DamageTimeoutE = true;
+            yield return new WaitForSeconds(0.5f);
+            DamageTimeoutE = false;
+        }
+    }
+
+    /// <summary>
+    /// Makes the enemy die.
+    /// </summary>
+    /// <returns></returns>
+    public virtual void Die()
+    {
+        for (int i = 0; i < Animations.Length; i++)
+        {
+            if (Animations[i] == "Death")
+            {
+                State = -1;
+                moving = false;
+                moveSpeed = 20;
+                animator.Play(Animations[i]);
+            }
+            else if (Animations[i] == "NoDeath")
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -11078,7 +11078,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8488328654572304352, guid: aa4f9a83332f6d048a325974022c3a6b, type: 3}
+  m_Sprite: {fileID: -3457048095024082990, guid: 0a743625593994a43a582b8ebb7e99d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11102,18 +11102,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.010590434}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5416667, y: 1.25}
+    oldSize: {x: 0.84375, y: 0.78125}
     newSize: {x: 0.5416667, y: 1.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5416667, y: 1.2288191}
+  m_Size: {x: 0.5416667, y: 1.25}
   m_EdgeRadius: 0
 --- !u!61 &3755890837747969683
 BoxCollider2D:
@@ -11128,50 +11128,19 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.028594851}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5416667, y: 1.25}
+    oldSize: {x: 0.84375, y: 0.78125}
     newSize: {x: 0.5416667, y: 1.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.3071897}
-  m_EdgeRadius: 0.01
---- !u!114 &3755890837747969692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3755890837747969694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc1b39b8831f81a43b129d556b22e3a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RandomTurnChance: 2
-  StartBounds: {fileID: 3755890838429010266}
-  EndBounds: {fileID: 3755890837632570210}
-  State: 0
-  moveSpeed: 4
-  Health: 100
-  viewDistance: 6
-  attackDamage: 20
-  Flying: 1
-  Animations:
-  - Moving
-  - Melee
-  - Death
-  Player: {fileID: 0}
-  DamageTimeout: 0
-  firstSpeed: 0
-  rb: {fileID: 0}
-  animator: {fileID: 0}
-  moving: 0
+  m_Size: {x: 0.5416667, y: 1.25}
+  m_EdgeRadius: 0
 --- !u!50 &3755890837747969693
 Rigidbody2D:
   serializedVersion: 4
@@ -11184,7 +11153,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.6656104
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5
@@ -11192,7 +11161,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!1 &3755890837747969694
 GameObject:
   m_ObjectHideFlags: 0
@@ -11206,8 +11175,8 @@ GameObject:
   - component: {fileID: 3755890837747969681}
   - component: {fileID: 3755890837747969682}
   - component: {fileID: 3755890837747969683}
-  - component: {fileID: 3755890837747969692}
   - component: {fileID: 5650337867497620096}
+  - component: {fileID: 3755890837747969696}
   m_Layer: 8
   m_Name: SwoopingEvil
   m_TagString: Enemy
@@ -11229,6 +11198,38 @@ Transform:
   m_Father: {fileID: 4366514641707865000}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3755890837747969696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755890837747969694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003c9b4a417e1904eaa0bcf956c86b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomTurnChance: 2
+  StartBounds: {fileID: 3755890838429010266}
+  EndBounds: {fileID: 3755890837632570210}
+  State: 0
+  moveSpeed: 4
+  Health: 100
+  viewDistance: 6
+  attackDamage: 20
+  Flying: 1
+  Animations:
+  - Moving
+  - Melee
+  - Death
+  Player: {fileID: 0}
+  DamageTimeout: 0
+  DamageTimeoutE: 0
+  firstSpeed: 0
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  moving: 0
 --- !u!1 &3755890838429010245
 GameObject:
   m_ObjectHideFlags: 0
@@ -11312,7 +11313,7 @@ Animator:
   m_GameObject: {fileID: 3755890837747969694}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3eb6983df9872dc41b2cf56d54fc69e6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 21a0c7889f4251f49956ab0ef9de237a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
