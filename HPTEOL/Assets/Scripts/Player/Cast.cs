@@ -1,5 +1,4 @@
 using System.Collections;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,14 +9,14 @@ public class Cast : MonoBehaviour
     [SerializeField] private GameObject[] spells = new GameObject[3];
     [SerializeField] private Image[] abilityImages = new Image[3];
     private bool[] usedAbilityX = new bool[3];
-
-    private const int maxBullets = 2;
-    private int currentBulletNumber;
     private PlayerMovement movement;
 
     private void Start()
     {
         movement = GetComponent<PlayerMovement>();
+        abilityImages.SetValue(GameObject.Find("Spell1").GetComponent<Image>(), 0);
+        abilityImages.SetValue(GameObject.Find("Spell2").GetComponent<Image>(), 1);
+        abilityImages.SetValue(GameObject.Find("Spell3").GetComponent<Image>(), 2);
     }
 
     private void Update()

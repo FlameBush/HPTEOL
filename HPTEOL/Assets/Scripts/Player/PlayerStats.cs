@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] int playersMaxHealth = 100;
     [SerializeField] int playersCurrentHealth;
-    [SerializeField] HealthBar playerHealthBar;
+    private HealthBar playerHealthBar;
 
-    void Awake()
+    private void Start()
     {
-        playersCurrentHealth = playersMaxHealth;
+        playerHealthBar = GameObject.Find("Healthbar").GetComponent<HealthBar>();
         playerHealthBar.SetMaxHealth(playersMaxHealth);
+        playersCurrentHealth = playersMaxHealth;
     }
 
     #region Properties

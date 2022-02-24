@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Death : MonoBehaviour
 {
@@ -10,7 +7,7 @@ public class Death : MonoBehaviour
     [SerializeField] EscapeMenuScript escapeMenuScript;
     public Transform SpawningPoint;
 
-    private void Awake()
+    private void Start()
     {
         player = GetComponent<PlayerStats>();
     }

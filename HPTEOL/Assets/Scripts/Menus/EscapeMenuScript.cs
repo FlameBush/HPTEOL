@@ -37,12 +37,10 @@ public class EscapeMenuScript : MonoBehaviour
     {
         Time.timeScale = 0;
         escapeScreenIsActive = true;
-        playerAnimator.SetBool("GameIsPaused", true);
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
         escapeScreenIsActive = false;
-        playerAnimator.SetBool("GameIsPaused", false);
     }
 }
