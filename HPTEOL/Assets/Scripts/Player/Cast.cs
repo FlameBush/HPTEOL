@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Cast : MonoBehaviour
 {
@@ -54,9 +55,8 @@ public class Cast : MonoBehaviour
     /// <param name="time"></param>
     private void AnimatingAbilitySymbol(Image abilityImage)
     {
-        LeanTween.init(800, 800);
-        abilityImage.transform.LeanScale(new Vector2(0.8f, 0.8f), 0.125f);
-        abilityImage.transform.GetChild(2).gameObject.LeanMoveLocalY(-125, 0);
+        abilityImage.transform.DOScale(new Vector2(0.8f, 0.8f), 0.125f);
+        abilityImage.transform.GetChild(2).transform.DOLocalMoveY(-125, 0);
     }
 
     /// <summary>
@@ -68,8 +68,8 @@ public class Cast : MonoBehaviour
     /// <returns></returns>
     private IEnumerator AnimatingAbilitySymbolBackwards(Image abilityImage, float time, int i)
     {
-        abilityImage.transform.LeanScale(Vector2.one, 0.3f).setEaseInBack();
-        abilityImage.transform.GetChild(2).gameObject.LeanMoveLocalY(0, time);
+        abilityImage.transform.DOScale(Vector2.one, 0.3f).SetEase(Ease.InBack);
+        abilityImage.transform.GetChild(2).transform.DOLocalMoveY(0, time);
         yield return new WaitForSeconds(time);
 
         usedAbilityX[i] = false;

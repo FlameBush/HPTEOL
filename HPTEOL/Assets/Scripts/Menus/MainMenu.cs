@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
         Time.timeScale = 1;
-        LeanTween.reset();
+        DOTween.Clear();
     }
 
     public void BackButton()
