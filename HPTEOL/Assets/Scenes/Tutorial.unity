@@ -3792,7 +3792,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 58602331009070929, guid: dc3a40af27202024998cde701f12eb06, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0f74030d8bf596646a7109018ba5dda4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6425,6 +6425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f71ba48898f4ad48980a750c2fd80a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableForWebgl: []
 --- !u!1 &1658140075
 GameObject:
   m_ObjectHideFlags: 0
