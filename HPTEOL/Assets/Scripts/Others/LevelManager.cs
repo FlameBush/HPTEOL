@@ -4,29 +4,40 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    static int levelsUnlocked;
+    static int levelsUnlocked {
+        get
+        {
+            return PlayerPrefs.GetInt("levelsUnlocked", 0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt("levelsUnlocked", value);
+        }
+    }
 
     [SerializeField] Button[] levelsymbols = new Button[5];
 
+
     private void Start()
     {
-        levelsUnlocked = PlayerPrefs.GetInt("levelsUnlocked", 1);
+        //levelsUnlocked = PlayerPrefs.GetInt("levelsUnlocked", 1);
 
         for (int i = 0; i < levelsymbols.Length; i++)
         {
+
             levelsymbols[i].interactable = false;
         }
 
-        for (int i = 0; i < levelsUnlocked; i++)
+        for (int i = 0; i <= levelsUnlocked; i++)
         {
             levelsymbols[i].interactable = true;
         }
     }
 
-    private void Update()
-    {
-        levelsUnlocked = PlayerPrefs.GetInt("levelsUnlocked");
-    }
+    //private void Update()
+    //{
+    //    levelsUnlocked = PlayerPrefs.GetInt("levelsUnlocked");
+    //}
 
     /// <summary>
     /// Loads the specified scene.
