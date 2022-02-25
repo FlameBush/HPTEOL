@@ -28,6 +28,7 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public Animator animator;
     [HideInInspector] public bool moving;
+    private RaycastHit2D groundCheck;
     private RaycastHit2D Seeing;
     private SpriteRenderer sprite;
 
@@ -58,10 +59,18 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void Update()
     {
-        Seeing = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), viewDistance, 8);
+        Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.left), viewDistance, 8);
         if (Seeing.transform != null && Seeing.transform.CompareTag("Player") && State != -1)
         {
             State = 1;
+        }
+        else if (Flying)
+        {
+            Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.down), viewDistance, 8);
+            if (Seeing.transform != null && Seeing.transform.CompareTag("Player") && State != -1)
+            {
+                State = 1;
+            }
         }
 
         if (moveSpeed == 0)
