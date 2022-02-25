@@ -197,14 +197,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16981131, g: 0.12896048, b: 0.12896048, a: 0.8509804}
+  m_Color: {r: 0.1254902, g: 0.078431375, b: 0.3921569, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 60df4ced4ccdfa3458df59fe570976cf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.01518639, g: 0.20754719, b: 0, a: 1}
-  m_EffectDistance: {x: 2.51, y: 1.54}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 1
 --- !u!114 &175467490
 MonoBehaviour:
@@ -986,8 +986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.01518639, g: 0.20754719, b: 0, a: 1}
-  m_EffectDistance: {x: 2.51, y: 1.54}
+  m_EffectColor: {r: 0.20754719, g: 0.012536407, b: 0, a: 1}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 1
 --- !u!114 &870223539
 MonoBehaviour:
@@ -1022,7 +1022,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2.2
-  m_Text: PixelTypist
+  m_Text: Cade
 --- !u!222 &870223540
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1147,8 +1147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.01518639, g: 0.20754719, b: 0, a: 1}
-  m_EffectDistance: {x: 2.51, y: 1.54}
+  m_EffectColor: {r: 0.20754719, g: 0.012536407, b: 0, a: 1}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 1
 --- !u!114 &1038398191
 MonoBehaviour:
@@ -1183,7 +1183,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2.2
-  m_Text: PixelTypist
+  m_Text: Jennifer Huckabay
 --- !u!222 &1038398192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1242,8 +1242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.01518639, g: 0.20754719, b: 0, a: 1}
-  m_EffectDistance: {x: 2.51, y: 1.54}
+  m_EffectColor: {r: 0, g: 0.11366773, b: 0.1792453, a: 1}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 1
 --- !u!114 &1084126857
 MonoBehaviour:
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5764706, g: 0.015649522, b: 0, a: 1}
+  m_Color: {r: 0.109526515, g: 0.5176471, b: 0.754717, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1566,8 +1566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.01518639, g: 0.20754719, b: 0, a: 1}
-  m_EffectDistance: {x: 2.51, y: 1.54}
+  m_EffectColor: {r: 0.20754719, g: 0.012536407, b: 0, a: 1}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 1
 --- !u!114 &1328232175
 MonoBehaviour:
@@ -1662,7 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.01518639, g: 0.20754719, b: 0, a: 1}
-  m_EffectDistance: {x: 2.51, y: 1.54}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 1
 --- !u!114 &1574874007
 MonoBehaviour:
@@ -1795,8 +1795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.01518639, g: 0.20754719, b: 0, a: 1}
-  m_EffectDistance: {x: 2.51, y: 1.54}
+  m_EffectColor: {r: 0.20754719, g: 0.012536407, b: 0, a: 1}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 1
 --- !u!114 &1729340109
 MonoBehaviour:
@@ -2040,7 +2040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.01518639, g: 0.20754719, b: 0, a: 1}
-  m_EffectDistance: {x: 2.51, y: 1.54}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 1
 --- !u!114 &2145087697
 MonoBehaviour:
