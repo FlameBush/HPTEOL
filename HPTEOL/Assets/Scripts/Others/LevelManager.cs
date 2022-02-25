@@ -28,8 +28,21 @@ public class LevelManager : MonoBehaviour
         levelsUnlocked = PlayerPrefs.GetInt("levelsUnlocked");
     }
 
+    /// <summary>
+    /// Loads the specified scene.
+    /// </summary>
+    /// <param name="levelIndex"></param>
     public void LoadLevel(int levelIndex)
     {
         SceneManager.LoadScene(levelIndex);
+    }
+
+    /// <summary>
+    /// Wipes all level unlocked data
+    /// </summary>
+    public void WipeData()
+    {
+        PlayerPrefs.DeleteKey("levelsUnlocked");
+        Start();
     }
 }
