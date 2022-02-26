@@ -7,10 +7,10 @@ public class LevelManager : MonoBehaviour
     static int levelsUnlocked {
         get
         {
-            return PlayerPrefs.GetInt("levelsUnlocked", 0);
+            return PlayerPrefs.GetInt("levelsUnlocked", 1);
         }
         set
-        {
+        {   
             PlayerPrefs.SetInt("levelsUnlocked", value);
         }
     }
@@ -20,24 +20,17 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        //levelsUnlocked = PlayerPrefs.GetInt("levelsUnlocked", 1);
-
         for (int i = 0; i < levelsymbols.Length; i++)
         {
 
             levelsymbols[i].interactable = false;
         }
 
-        for (int i = 0; i <= levelsUnlocked; i++)
+        for (int i = 0; i <= levelsUnlocked - 1; i++)
         {
             levelsymbols[i].interactable = true;
         }
     }
-
-    //private void Update()
-    //{
-    //    levelsUnlocked = PlayerPrefs.GetInt("levelsUnlocked");
-    //}
 
     /// <summary>
     /// Loads the specified scene.
@@ -53,7 +46,7 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void WipeData()
     {
-        PlayerPrefs.DeleteKey("levelsUnlocked");
+        levelsUnlocked = 1;
         Start();
     }
 }
