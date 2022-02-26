@@ -9,13 +9,13 @@ public class Tutorial : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(movementTutorial());
+        StartCoroutine(showTutorials());
     }
 
     /// <summary>
     /// Shows all movement tutorials.
     /// </summary>
-    public IEnumerator movementTutorial()
+    public IEnumerator showTutorials()
     {
         yield return new WaitForSeconds(1);
         for (int i = 0; i < tutorials.Length; i++)
