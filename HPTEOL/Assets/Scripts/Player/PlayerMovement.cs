@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,16 +9,19 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 100f)]
     [SerializeField] float sprintSpeed = 60f;
 
+    [HideInInspector] public float horizontal;
     private CharacterController2D controller;
     private Animator animator;
-    [HideInInspector] public float horizontal;
     private bool jump;
     private float currentSpeed;
+    private ParticleSystem dust;
+    private bool walking;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController2D>();
+        dust = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
             animator.Play("Spinny");
+            dust.Stop();
         }
 
         if (!EscapeMenuScript.escapeScreenIsActive)
@@ -45,6 +50,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        walking = Mathf.Abs(horizontal) > 0;
+
+        if (walking && !jump)
+        {
+            dust.Play();
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal") * currentSpeed;
         controller.Move(horizontal * Time.fixedDeltaTime, false, jump);
         jump = false;
@@ -56,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnLanding()
     {
         animator.Play("Idle");
+        dust.Play();
     }
 
     /// <summary>
@@ -63,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void OnSpellShoot()
     {
-        var walking = Mathf.Abs(horizontal) > 0;
         if (walking)
         {
             animator.Play("AttackMoving");
