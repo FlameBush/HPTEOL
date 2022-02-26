@@ -2666,7 +2666,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: LOW
       m_Image: {fileID: 0}
-    - m_Text: POTATO
+    - m_Text: SORRY
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

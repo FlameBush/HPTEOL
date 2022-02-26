@@ -75,7 +75,7 @@ public class SettingsMenu : MonoBehaviour
         if (qualityIndex == 3)
         {
             sc++;
-            if (sc > 3)
+            if (sc > 2)
             {
                 sc = 0;
                 QualitySettings.SetQualityLevel(4); // We do a little bit of trolling
