@@ -14,10 +14,10 @@ public class FileManager : MonoBehaviour
     {
         Settings data = new Settings
         {
-            fullscreen = PlayerPrefs.GetInt("Fullscreen"),
-            resolution = PlayerPrefs.GetInt("Resolution"),
-            quality = PlayerPrefs.GetInt("Quality"),
-            volume = PlayerPrefs.GetFloat("MasterVol")
+            fullscreen = PlayerPrefs.GetInt("Fullscreen", 1),
+            resolution = PlayerPrefs.GetInt("Resolution", Screen.resolutions.Length),
+            quality = PlayerPrefs.GetInt("Quality", 0),
+            volume = PlayerPrefs.GetFloat("MasterVol", 50)
         };
         return data;
     }

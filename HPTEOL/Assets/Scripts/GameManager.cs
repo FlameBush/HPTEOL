@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -25,7 +23,7 @@ public class GameManager : MonoBehaviour
         {
             gameCanvas.SetActive(true);
         }
-        if ( Input.GetKey(KeyCode.F12))
+        if (Input.GetKey(KeyCode.F12))
         {
             PlayerPrefs.DeleteAll();
         }

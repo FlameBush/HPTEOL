@@ -11,7 +11,7 @@ public class Spell : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         bulletAnimtor = GetComponent<Animator>();
-        
+
     }
 
     void Start()

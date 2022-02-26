@@ -14,7 +14,7 @@ public class HPTEOL : Editor
     public static void LoadSplash()
     {
         EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-        EditorSceneManager.OpenScene("Assets/Scenes/Splash.unity",OpenSceneMode.Single);
+        EditorSceneManager.OpenScene("Assets/Scenes/Splash.unity", OpenSceneMode.Single);
         Debug.Log("Loading Splash");
     }
 }

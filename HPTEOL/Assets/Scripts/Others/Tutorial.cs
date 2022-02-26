@@ -1,7 +1,6 @@
 using DG.Tweening;
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {

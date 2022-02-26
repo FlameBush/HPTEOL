@@ -1,16 +1,17 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    static int levelsUnlocked {
+    static int levelsUnlocked
+    {
         get
         {
             return PlayerPrefs.GetInt("levelsUnlocked", 1);
         }
         set
-        {   
+        {
             PlayerPrefs.SetInt("levelsUnlocked", value);
         }
     }

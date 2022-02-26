@@ -67,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
         if (walking)
         {
             animator.Play("AttackMoving");
-        } else
+        }
+        else
         {
             animator.Play("AttackIdle");
         }

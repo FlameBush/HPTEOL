@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -14,6 +14,7 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
     private Settings sceneSettings;
     private GameObject GameManager;
+    private int sc;
 
     void Start()
     {
@@ -22,30 +23,12 @@ public class SettingsMenu : MonoBehaviour
         GameManager = GameObject.Find("GameManager");
         List<string> options = new List<string>();
 
-        ///<summary>
-        /// Try to update current settings with saved settings or set them to default
-        /// </summary>
-        try
-        {
-            Settings LoadedSets = (Settings)GameManager.GetComponent<FileManager>().LoadSettings();
-            sceneSettings = LoadedSets;
-            qualityDropdown.value = sceneSettings.quality;
-            volumeSlider.value = sceneSettings.volume;
-            fullscreenToggle.isOn = IntToBool(sceneSettings.fullscreen);
-        }
-        catch (System.NullReferenceException)
-        {
-            sceneSettings.resolution = resolutions.Length;
-            sceneSettings.volume = 0.5f;
-            sceneSettings.quality = 0;
-            sceneSettings.fullscreen = 1;
-            RefreshSettings();
-            GameManager.GetComponent<FileManager>().SaveSettings(sceneSettings);
-        }
+        Settings LoadedSets = (Settings)GameManager.GetComponent<FileManager>().LoadSettings();
+        sceneSettings = LoadedSets;
+        qualityDropdown.value = sceneSettings.quality;
+        volumeSlider.value = sceneSettings.volume;
+        fullscreenToggle.isOn = IntToBool(sceneSettings.fullscreen);
 
-        ///<summary>
-        /// Add resolutions to dropdown
-        /// </summary>
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
@@ -89,6 +72,15 @@ public class SettingsMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
         sceneSettings.quality = qualityIndex;
         GameManager.GetComponent<FileManager>().SaveSettings(sceneSettings);
+        if (qualityIndex == 3)
+        {
+            sc++;
+            if (sc > 3)
+            {
+                sc = 0;
+                QualitySettings.SetQualityLevel(4); // We do a little bit of trolling
+            }
+        }
     }
 
     /// <summary>

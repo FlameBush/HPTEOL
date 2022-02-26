@@ -20,7 +20,8 @@ public class Spider : BaseEnemy
             if (Player.position.x < 0)
             {
                 transform.position = Vector2.MoveTowards(transform.position, new Vector3(Player.position.x + JumpLeap, transform.position.y + JumpPower), JumpPower * Time.deltaTime);
-            } else
+            }
+            else
             {
                 transform.position = Vector2.MoveTowards(transform.position, new Vector3(Player.position.x - JumpLeap, transform.position.y + JumpPower), JumpPower * Time.deltaTime);
             }
