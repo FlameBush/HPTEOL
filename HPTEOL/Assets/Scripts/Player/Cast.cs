@@ -29,21 +29,21 @@ public class Cast : MonoBehaviour
             {
                 Shoot(spells[0]);
                 AnimatingAbilitySymbol(abilityImages[0]);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[0], 0.25f, 0));
+                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[0], 0.35f, 0));
                 usedAbilityX[0] = true;
             }
             else if (Input.GetButtonDown("Fire2") && !usedAbilityX[1])
             {
                 Shoot(spells[1]);
                 AnimatingAbilitySymbol(abilityImages[1]);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[1], 0.75f, 1));
+                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[1], 0.85f, 1));
                 usedAbilityX[1] = true;
             }
             else if (Input.GetButtonDown("Fire3") && !usedAbilityX[2])
             {
                 Shoot(spells[2]);
                 AnimatingAbilitySymbol(abilityImages[2]);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[2], 1.2f, 2));
+                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[2], 1.25f, 2));
                 usedAbilityX[2] = true;
             }
         }

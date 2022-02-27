@@ -28,7 +28,6 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public Animator animator;
     [HideInInspector] public bool moving;
-    private RaycastHit2D groundCheck;
     private RaycastHit2D Seeing;
     private SpriteRenderer sprite;
 
@@ -94,7 +93,13 @@ public class BaseEnemy : MonoBehaviour
         {
             if (Flying)
             {
-                rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(EndBounds.position.x, transform.position.y + 1), moveSpeed * Time.fixedDeltaTime));
+                if (transform.position.y > StartBounds.GetComponent<Collider2D>().bounds.extents.y)
+                {
+                    rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(EndBounds.position.x, transform.position.y + 1), moveSpeed * Time.fixedDeltaTime));
+                } else
+                {
+                    rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(EndBounds.position.x, transform.position.y - StartBounds.GetComponent<Collider2D>().bounds.extents.y), moveSpeed * Time.fixedDeltaTime));
+                }
             }
             else
             {
