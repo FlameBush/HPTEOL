@@ -4,6 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField] Vector3 offset;
     private Transform followTarget;
+    [SerializeField] float smoothness;
 
     private void Start()
     {
@@ -12,6 +13,6 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, followTarget.position + offset, 3 * Time.fixedDeltaTime);
+        transform.position = Vector2.Lerp(transform.position, followTarget.position + offset, smoothness * Time.fixedDeltaTime);
     }
 }
