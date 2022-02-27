@@ -216,6 +216,7 @@ public class BaseEnemy : MonoBehaviour
     {
         if (!DamageTimeoutE)
         {
+            GetComponent<ParticleSystem>().Play();
             Health -= spelldamage;
             DamageTimeoutE = true;
             yield return new WaitForSeconds(0.5f);
