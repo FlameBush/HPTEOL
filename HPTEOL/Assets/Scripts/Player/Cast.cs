@@ -12,12 +12,16 @@ public class Cast : MonoBehaviour
     private bool[] usedAbilityX = new bool[3];
     private PlayerMovement movement;
 
-    private void Start()
+    private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
         abilityImages.SetValue(GameObject.Find("Spell1").GetComponent<Image>(), 0);
         abilityImages.SetValue(GameObject.Find("Spell2").GetComponent<Image>(), 1);
         abilityImages.SetValue(GameObject.Find("Spell3").GetComponent<Image>(), 2);
+        for (int i = 0; i < usedAbilityX.Length; i++)
+        {
+            usedAbilityX[i] = false;
+        }
     }
 
     private void Update()
