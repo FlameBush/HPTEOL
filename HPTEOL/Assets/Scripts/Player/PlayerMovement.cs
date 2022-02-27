@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController2D>();
-        dust = GetComponentInChildren<ParticleSystem>();
+        dust = transform.Find("Ground").GetComponent<ParticleSystem>();
     }
 
     private void Update()

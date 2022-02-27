@@ -186,7 +186,7 @@ public class BaseEnemy : MonoBehaviour
     {
         if (!DamageTimeout)
         {
-            Player.GetComponent<PlayerStats>().PlayerTakesDamage(attackDamage);
+            Player.GetComponent<PlayerStats>().PlayerTakesDamage(attackDamage, true);
             moving = false;
             for (int i = 0; i < Animations.Length; i++)
             {

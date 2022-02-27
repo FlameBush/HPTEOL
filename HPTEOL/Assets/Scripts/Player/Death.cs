@@ -25,7 +25,7 @@ public class Death : MonoBehaviour
         if (collider.tag == "End of World")
         {
             transform.position = SpawningPoint.position;
-            player.PlayerTakesDamage(50);
+            player.PlayerTakesDamage(50, false);
         }
     }
 
