@@ -5053,8 +5053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bff45190399274193fc0f861ba845e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escapeScreen: {fileID: 1180504356}
-  Settings: {fileID: 1483477162}
 --- !u!114 &1060533614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5079,8 +5077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b6f15e164ab884595b642ca16469cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menusCanvas: {fileID: 0}
-  gameCanvas: {fileID: 0}
 --- !u!114 &1060533616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5611,7 +5607,7 @@ GameObject:
   - component: {fileID: 1180504357}
   m_Layer: 0
   m_Name: EscapeMenu
-  m_TagString: Untagged
+  m_TagString: EscapeMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -3,18 +3,23 @@ using UnityEngine;
 public class EscapeMenuScript : MonoBehaviour
 {
     public static bool escapeScreenIsActive = false;
-    public GameObject escapeScreen;
-    [SerializeField] GameObject Settings;
-
-    private Animator playerAnimator;
+    private GameObject escapeScreen;
+    private GameObject settings;
 
     private void Awake()
     {
-        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
         escapeScreenIsActive = false;
+        if (GameObject.FindWithTag("EscapeMenu") != null)
+        {
+            escapeScreen = GameObject.FindWithTag("EscapeMenu").gameObject;
+            settings = escapeScreen.transform.Find("Settings").gameObject;
+        } else
+        {
+            Debug.Log(escapeScreen);
+            Debug.Log(settings);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (escapeScreen != null)
@@ -24,7 +29,7 @@ public class EscapeMenuScript : MonoBehaviour
                 PauseGame();
                 escapeScreen.SetActive(true);
             }
-            else if (Input.GetKeyDown(KeyCode.Escape) && escapeScreenIsActive && !Settings.activeSelf)
+            else if (Input.GetKeyDown(KeyCode.Escape) && escapeScreenIsActive && !settings.activeSelf)
             {
                 ResumeGame();
                 escapeScreen.SetActive(false);

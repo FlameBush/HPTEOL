@@ -5,6 +5,14 @@ public class DiedMenuScript : MonoBehaviour
 {
     [SerializeField] Image DiedMenu;
 
+    private void Start()
+    {
+        if (GameObject.FindWithTag("DiedMenu") != null)
+        {
+            DiedMenu = GameObject.FindWithTag("DiedMenu").GetComponent<Image>();
+        }
+    }
+
     public void DisplayDiedMenu()
     {
         if (DiedMenu.gameObject.activeSelf != true)
