@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         if (scene.buildIndex != 0)
         {
 			GetComponent<LevelManager>().enabled = false;
+
         }
 	}
 }
