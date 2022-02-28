@@ -1,25 +1,23 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	[SerializeField] private GameObject menusCanvas;
-	[SerializeField] private GameObject gameCanvas;
+    private void OnEnable()
+    {
+		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
 
-	private void Awake()
+    private void Awake()
 	{
 		DontDestroyOnLoad(transform.gameObject);
 	}
 
-	private void Update()
+	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		if (menusCanvas.transform.GetChild(0).gameObject.activeSelf ||
-			menusCanvas.transform.GetChild(1).gameObject.activeSelf)
-		{
-			gameCanvas.SetActive(false);
-		}
-		else
-		{
-			gameCanvas.SetActive(true);
-		}
+        if (scene.buildIndex != 0)
+        {
+			GetComponent<LevelManager>().enabled = false;
+        }
 	}
 }

@@ -9,8 +9,15 @@ public class EscapeMenuScript : MonoBehaviour
     private void Awake()
     {
         escapeScreenIsActive = false;
-        escapeScreen = GameObject.Find("NonHud").transform.Find("EscapeMenu").gameObject;
-        settings = escapeScreen.transform.Find("Settings").gameObject;
+        if (GameObject.FindWithTag("EscapeMenu") != null)
+        {
+            escapeScreen = GameObject.FindWithTag("EscapeMenu").gameObject;
+            settings = escapeScreen.transform.Find("Settings").gameObject;
+        } else
+        {
+            Debug.Log(escapeScreen);
+            Debug.Log(settings);
+        }
     }
 
     void Update()

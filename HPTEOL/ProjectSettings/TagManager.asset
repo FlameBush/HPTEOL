@@ -10,6 +10,8 @@ TagManager:
   - EnemyEndOfWorld
   - Spell
   - CutsceneUI
+  - DiedMenu
+  - EscapeMenu
   layers:
   - Default
   - TransparentFX
