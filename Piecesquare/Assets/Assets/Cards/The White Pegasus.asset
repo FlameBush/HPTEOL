@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfeb82b0467917846b28dbf08f604602, type: 3}
+  m_Name: The White Pegasus
+  m_EditorClassIdentifier: 
+  _cardName: The White Pegasus
+  _elementType: 1
+  _elementSubtype: Beast
+  _backgroundImage: {fileID: 21300000, guid: 16c84f030210b944e812868730579dab, type: 3}
+  _skills: I have a skill
+  _rarity: 1
+  _identity: 0
+  _id: 2
+  _cost: 3
+  _movement: 4
+  _range: 1
+  _attack: 4
+  _defense: 5
+  _loot: 6

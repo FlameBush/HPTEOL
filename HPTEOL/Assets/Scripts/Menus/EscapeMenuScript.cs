@@ -19,7 +19,6 @@ public class EscapeMenuScript : MonoBehaviour
     {
         if (escapeScreen != null)
         {
-
             if (Input.GetKeyDown(KeyCode.Escape) && !escapeScreenIsActive)
             {
                 PauseGame();
