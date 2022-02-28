@@ -10,12 +10,6 @@ public class GameManager : MonoBehaviour
 		DontDestroyOnLoad(transform.gameObject);
 	}
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		Debug.Log("Hit F12 to delete saved levels");
-	}
-
 	private void Update()
 	{
 		if (menusCanvas.transform.GetChild(0).gameObject.activeSelf ||
