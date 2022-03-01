@@ -26,7 +26,7 @@ public class Cast : MonoBehaviour
 
     private void Update()
     {
-        if (!EscapeMenuScript.escapeScreenIsActive)
+        if (!EscapeMenu.escapeScreenIsActive)
         {
             Time.timeScale = 1;
             if (Input.GetButtonDown("Fire1") && !usedAbilityX[0])

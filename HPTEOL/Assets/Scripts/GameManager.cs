@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
         {
             while (GetComponent<LevelManager>().enabled)
             {
-                GetComponent<EscapeMenuScript>().enabled = true;
-                GetComponent<DiedMenuScript>().enabled = true;
+                GetComponent<EscapeMenu>().enabled = true;
+                GetComponent<DiedMenu>().enabled = true;
                 GetComponent<LevelManager>().enabled = false;
             }
         }
@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
         {
             while(!GetComponent<LevelManager>().enabled)
             {
-                GetComponent<EscapeMenuScript>().enabled = false;
-                GetComponent<DiedMenuScript>().enabled = false;
+                GetComponent<EscapeMenu>().enabled = false;
+                GetComponent<DiedMenu>().enabled = false;
                 GetComponent<LevelManager>().enabled = true;
             }
         }

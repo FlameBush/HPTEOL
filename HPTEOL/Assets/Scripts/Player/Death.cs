@@ -3,8 +3,8 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     private PlayerStats player;
-    private DiedMenuScript diedMenu;
-    private EscapeMenuScript escapeMenuScript;
+    private DiedMenu diedMenu;
+    private EscapeMenu escapeMenu;
     public Transform SpawningPoint;
 
     private void Start()
@@ -12,8 +12,8 @@ public class Death : MonoBehaviour
         player = GetComponent<PlayerStats>();
         if (GameObject.Find("GameManager"))
         {
-            escapeMenuScript = GameObject.Find("GameManager").GetComponent<EscapeMenuScript>();
-            diedMenu = GameObject.Find("GameManager").GetComponent<DiedMenuScript>();
+            escapeMenu = GameObject.Find("GameManager").GetComponent<EscapeMenu>();
+            diedMenu = GameObject.Find("GameManager").GetComponent<DiedMenu>();
         } else
         {
             Debug.LogWarning("Game Manager was not found certain functions may not work ignore this error or start from main menu!");
@@ -46,10 +46,10 @@ public class Death : MonoBehaviour
     private void PlayerDied()
     {
         player.gameObject.SetActive(false);
-        if (diedMenu != null && escapeMenuScript != null)
+        if (diedMenu != null && escapeMenu != null)
         {
             diedMenu.DisplayDiedMenu();
-            escapeMenuScript.PauseGame();
+            escapeMenu.PauseGame();
         }
     }
 }

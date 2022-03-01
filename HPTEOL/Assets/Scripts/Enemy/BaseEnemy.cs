@@ -5,7 +5,8 @@ public class BaseEnemy : MonoBehaviour
 {
     [Header("Pathfinding")]
     [Range(0f, 100f)]
-    [SerializeField] float RandomTurnChance, RandomSpellChance = 2;
+    [SerializeField] float RandomTurnChance = 2;
+    [SerializeField] float RandomSpellChance = 2;
     [SerializeField] Transform StartBounds, EndBounds;
     public int State;
     [Header("Base Stats")]

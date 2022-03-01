@@ -34,14 +34,14 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = runSpeed;
         }
 
-        if (Input.GetButtonDown("Jump") && !EscapeMenuScript.escapeScreenIsActive)
+        if (Input.GetButtonDown("Jump") && !EscapeMenu.escapeScreenIsActive)
         {
             jump = true;
             animator.Play("Spinny");
             dust.Stop();
         }
 
-        if (!EscapeMenuScript.escapeScreenIsActive)
+        if (!EscapeMenu.escapeScreenIsActive)
         {
             animator.SetFloat("Moving", Mathf.Abs(horizontal));
         }

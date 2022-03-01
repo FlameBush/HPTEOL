@@ -14,18 +14,18 @@ public class TutorialMenu : MonoBehaviour
 
     private void Update()
     {
-        if (this.gameObject.transform.GetChild(Currentinfo).gameObject.name == "end")
+        if (gameObject.transform.GetChild(Currentinfo).gameObject.name == "end")
         {
             Time.timeScale = 1;
             playerAnimator.SetBool("GameIsPaused", false);
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
         if (Input.anyKeyDown)
         {
-            this.gameObject.transform.GetChild(Currentinfo).gameObject.SetActive(false);
+            gameObject.transform.GetChild(Currentinfo).gameObject.SetActive(false);
             Currentinfo++;
-            this.gameObject.transform.GetChild(Currentinfo).gameObject.SetActive(true);
+            gameObject.transform.GetChild(Currentinfo).gameObject.SetActive(true);
         }
     }
 }
