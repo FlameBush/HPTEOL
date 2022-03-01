@@ -6,6 +6,7 @@ public class BaseEnemy : MonoBehaviour
     [Header("Pathfinding")]
     [Range(0f, 100f)]
     [SerializeField] float RandomTurnChance = 2;
+    [SerializeField] float RandomSpellChance = 2;
     [SerializeField] Transform StartBounds, EndBounds;
     public int State;
     [Header("Base Stats")]
@@ -14,12 +15,15 @@ public class BaseEnemy : MonoBehaviour
     [Range(1f, 155f)]
     [SerializeField] int Health = 100;
     [Range(4f, 25f)]
-    [SerializeField] int viewDistance = 6;
-    [Range(0f, 100f)]
+    [SerializeField] float viewDistance = 6;
+    [Range(0, 100)]
     [SerializeField] int attackDamage = 20;
-    [Header("Settings")]
-    public bool Flying;
-    public string[] Animations = { "Moving", "Idle", "Death", "Melee" };
+    [Range(0, 20)]
+    [SerializeField] int SpellCooldownTime = 5;
+    [Header("Enemy Settings")]
+    [SerializeField] bool Flying;
+    [SerializeField] string[] Animations = { "Moving", "Idle", "Death", "Melee" };
+    [SerializeField] GameObject[] Spells;
 
     [HideInInspector] public Transform Player;
     [HideInInspector] public bool DamageTimeout;
@@ -30,6 +34,7 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector] public bool moving;
     private RaycastHit2D Seeing;
     private SpriteRenderer sprite;
+    private bool spellCooldown;
 
     private void Start()
     {
@@ -96,7 +101,8 @@ public class BaseEnemy : MonoBehaviour
                 if (transform.position.y > StartBounds.GetComponent<Collider2D>().bounds.extents.y)
                 {
                     rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(EndBounds.position.x, transform.position.y + 1), moveSpeed * Time.fixedDeltaTime));
-                } else
+                }
+                else
                 {
                     rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(EndBounds.position.x, transform.position.y - StartBounds.GetComponent<Collider2D>().bounds.extents.y), moveSpeed * Time.fixedDeltaTime));
                 }
@@ -151,6 +157,14 @@ public class BaseEnemy : MonoBehaviour
         else
         {
             sprite.flipX = false;
+        }
+
+        for (int i = 0; i < Spells.Length; i++)
+        {
+            if (Spells[i] != null && Random.Range(0, 100) < RandomSpellChance)
+            {
+                StartCoroutine(ShootSpell(i));
+            }
         }
     }
 
@@ -226,6 +240,40 @@ public class BaseEnemy : MonoBehaviour
             DamageTimeoutE = true;
             yield return new WaitForSeconds(0.5f);
             DamageTimeoutE = false;
+        }
+    }
+
+    /// <summary>
+    /// Makes the enemy fire the specified spell prefab.
+    /// </summary>
+    /// <param name="spell"></param>
+    /// <returns></returns>
+    private IEnumerator ShootSpell(int spell)
+    {
+        if (!spellCooldown)
+        {
+            moving = false;
+            moveSpeed = 0;
+            animator.Play("Spellcast");
+            spellCooldown = true;
+            GameObject firedSpell = Instantiate<GameObject>(Spells[spell]);
+            firedSpell.GetComponent<SpriteRenderer>().flipX = !sprite.flipX;
+            if (!sprite.flipX)
+            {
+                firedSpell.transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+            }
+            else
+            {
+                firedSpell.transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+            }
+
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Spellcast"))
+            {
+                moveSpeed = firstSpeed;
+                moving = true;
+                yield return new WaitForSeconds(SpellCooldownTime);
+                spellCooldown = false;
+            }
         }
     }
 

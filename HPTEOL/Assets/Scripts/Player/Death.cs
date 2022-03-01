@@ -3,13 +3,21 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     private PlayerStats player;
-    [SerializeField] DiedMenuScript diedMenu;
-    [SerializeField] EscapeMenuScript escapeMenuScript;
+    private DiedMenu diedMenu;
+    private EscapeMenu escapeMenu;
     public Transform SpawningPoint;
 
     private void Start()
     {
         player = GetComponent<PlayerStats>();
+        if (GameObject.Find("GameManager"))
+        {
+            escapeMenu = GameObject.Find("GameManager").GetComponent<EscapeMenu>();
+            diedMenu = GameObject.Find("GameManager").GetComponent<DiedMenu>();
+        } else
+        {
+            Debug.LogWarning("Game Manager was not found certain functions may not work ignore this error or start from main menu!");
+        }
     }
 
     private void Update()
@@ -22,17 +30,26 @@ public class Death : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "End of World")
+        if (collider.CompareTag("End of World"))
         {
             transform.position = SpawningPoint.position;
             player.PlayerTakesDamage(50, false);
+        }
+
+        if (collider.CompareTag("EnemySpell"))
+        {
+            player.PlayerTakesDamage(collider.GetComponent<Spell>().damage, true);
+            Destroy(collider.gameObject);
         }
     }
 
     private void PlayerDied()
     {
         player.gameObject.SetActive(false);
-        diedMenu.GetComponent<DiedMenuScript>().DisplayDiedMenu();
-        escapeMenuScript.GetComponent<EscapeMenuScript>().PauseGame();
+        if (diedMenu != null && escapeMenu != null)
+        {
+            diedMenu.DisplayDiedMenu();
+            escapeMenu.PauseGame();
+        }
     }
 }

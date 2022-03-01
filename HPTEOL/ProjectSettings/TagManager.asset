@@ -12,6 +12,7 @@ TagManager:
   - CutsceneUI
   - DiedMenu
   - EscapeMenu
+  - EnemySpell
   layers:
   - Default
   - TransparentFX

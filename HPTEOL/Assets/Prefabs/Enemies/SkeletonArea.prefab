@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomTurnChance: 2
+  RandomSpellChance: 2
   StartBounds: {fileID: 2265440764061653217}
   EndBounds: {fileID: 2265440763466400473}
   State: 0
@@ -182,12 +183,15 @@ MonoBehaviour:
   Health: 100
   viewDistance: 6
   attackDamage: 20
+  SpellCooldownTime: 5
   Flying: 0
   Animations:
   - Moving
   - Melee
   - Idle
   - IdleDeath
+  Spells:
+  - {fileID: 1028540194854842214, guid: b3062ef11598ece4a94d3b6757115a8e, type: 3}
   Player: {fileID: 0}
   DamageTimeout: 0
   DamageTimeoutE: 0

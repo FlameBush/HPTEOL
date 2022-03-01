@@ -16,7 +16,13 @@ public class Spell : MonoBehaviour
 
     void Start()
     {
-        rb2d.velocity = transform.right * speed;
+        if (GetComponent<SpriteRenderer>().flipX)
+        {
+            rb2d.velocity = -transform.right * speed;
+        } else
+        {
+            rb2d.velocity = transform.right * speed;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
