@@ -33,6 +33,7 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public bool moving;
     private RaycastHit2D Seeing;
+    private RaycastHit2D SeeingClose;
     private SpriteRenderer sprite;
     private bool spellCooldown;
 
@@ -63,18 +64,32 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void Update()
     {
-        Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.left), viewDistance, 8);
+        if (sprite.flipX)
+        {
+            Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.right), viewDistance, 8);
+            SeeingClose = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.right), 1.5f, 8);
+        } else
+        {
+            Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.left), viewDistance, 8);
+            SeeingClose = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.left), 1.5f, 8);
+        }
+
         if (Seeing.transform != null && Seeing.transform.CompareTag("Player") && State != -1)
         {
             State = 1;
         }
         else if (Flying)
         {
-            Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.down), viewDistance, 8);
+            Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), -130, transform.TransformDirection(Vector2.down), viewDistance, 8);
             if (Seeing.transform != null && Seeing.transform.CompareTag("Player") && State != -1)
             {
                 State = 1;
             }
+        }
+        
+        if (SeeingClose.transform != null && SeeingClose.transform.CompareTag("Enemy") && State == 0)
+        {
+            sprite.flipX = !sprite.flipX;
         }
 
         if (moveSpeed == 0)
