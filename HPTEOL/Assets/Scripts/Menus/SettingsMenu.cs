@@ -23,11 +23,14 @@ public class SettingsMenu : MonoBehaviour
         GameManager = GameObject.Find("GameManager");
         List<string> options = new List<string>();
 
-        Settings LoadedSets = (Settings)GameManager.GetComponent<FileManager>().LoadSettings();
-        sceneSettings = LoadedSets;
-        qualityDropdown.value = sceneSettings.quality;
-        volumeSlider.value = sceneSettings.volume;
-        fullscreenToggle.isOn = IntToBool(sceneSettings.fullscreen);
+        if (GameManager != null)
+        {
+            Settings LoadedSets = (Settings)GameManager.GetComponent<FileManager>().LoadSettings();
+            sceneSettings = LoadedSets;
+            qualityDropdown.value = sceneSettings.quality;
+            volumeSlider.value = sceneSettings.volume;
+            fullscreenToggle.isOn = IntToBool(sceneSettings.fullscreen);
+        }
 
         for (int i = 0; i < resolutions.Length; i++)
         {

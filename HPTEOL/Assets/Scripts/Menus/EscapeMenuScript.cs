@@ -6,21 +6,15 @@ public class EscapeMenuScript : MonoBehaviour
     private GameObject escapeScreen;
     private GameObject settings;
 
-    private void Awake()
+    private void Start()
     {
         escapeScreenIsActive = false;
-        if (GameObject.FindWithTag("EscapeMenu") != null)
-        {
-            escapeScreen = GameObject.FindWithTag("EscapeMenu").gameObject;
-            settings = escapeScreen.transform.Find("Settings").gameObject;
-        } else
-        {
-            Debug.Log(escapeScreen);
-            Debug.Log(settings);
-        }
+        escapeScreen = GameObject.Find("EscapeMenu").transform.Find("Escape").gameObject;
+        settings = GameObject.Find("EscapeMenu").transform.Find("Settings").gameObject;
+        escapeScreen.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
         if (escapeScreen != null)
         {
@@ -37,11 +31,18 @@ public class EscapeMenuScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Pauses the game.
+    /// </summary>
     public void PauseGame()
     {
         Time.timeScale = 0;
         escapeScreenIsActive = true;
     }
+
+    /// <summary>
+    /// Resumes the game.
+    /// </summary>
     public void ResumeGame()
     {
         Time.timeScale = 1;

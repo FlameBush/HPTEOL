@@ -1,28 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DiedMenuScript : MonoBehaviour
 {
-    [SerializeField] Image DiedMenu;
+    private GameObject DiedMenu;
 
     private void Start()
     {
-        if (GameObject.FindWithTag("DiedMenu") != null)
-        {
-            DiedMenu = GameObject.FindWithTag("DiedMenu").GetComponent<Image>();
-        }
+        DiedMenu = GameObject.Find("GameCanvas").transform.Find("Died Menu").gameObject;
     }
 
     public void DisplayDiedMenu()
     {
         if (DiedMenu.gameObject.activeSelf != true)
         {
-            DiedMenu.gameObject.SetActive(true);
+            DiedMenu.SetActive(true);
         }
     }
 
     public void HideDiedMenu()
     {
-        DiedMenu.gameObject.SetActive(false);
+        DiedMenu.SetActive(false);
     }
 }

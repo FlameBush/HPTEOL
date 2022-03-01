@@ -32,7 +32,10 @@ public class Death : MonoBehaviour
     private void PlayerDied()
     {
         player.gameObject.SetActive(false);
-        diedMenu.GetComponent<DiedMenuScript>().DisplayDiedMenu();
-        escapeMenuScript.GetComponent<EscapeMenuScript>().PauseGame();
+        if (diedMenu != null && escapeMenuScript != null)
+        {
+            diedMenu.DisplayDiedMenu();
+            escapeMenuScript.PauseGame();
+        }
     }
 }
