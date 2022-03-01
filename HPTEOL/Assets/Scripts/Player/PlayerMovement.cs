@@ -25,6 +25,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!jump)
+        {
+            // Read the jump input in Update so button presses aren't missed.
+            jump = Input.GetButtonDown("Jump");
+        }
+
         if (Input.GetButton("Sprint"))
         {
             currentSpeed = sprintSpeed;
@@ -34,9 +40,8 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = runSpeed;
         }
 
-        if (Input.GetButtonDown("Jump") && !EscapeMenu.escapeScreenIsActive)
+        if (jump && !EscapeMenu.escapeScreenIsActive)
         {
-            jump = true;
             animator.Play("Spinny");
             dust.Stop();
         }
@@ -60,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontal * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
+
 
     /// <summary>
     /// Triggered when player touches the ground.
