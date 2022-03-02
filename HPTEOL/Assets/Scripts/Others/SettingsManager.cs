@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FileManager : MonoBehaviour
+public class SettingsManager : MonoBehaviour
 {
     public void SaveSettings(Settings data)
     {

@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 47389014}
   - component: {fileID: 47389013}
   - component: {fileID: 47389017}
+  - component: {fileID: 47389018}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -461,6 +462,24 @@ MonoBehaviour:
   qualityDropdown: {fileID: 529715718}
   volumeSlider: {fileID: 1262185173}
   fullscreenToggle: {fileID: 533994952}
+--- !u!114 &47389018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47389012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab26ae7d2bea954a9fa9a8974feecb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelsymbols:
+  - {fileID: 2147142405}
+  - {fileID: 614761142}
+  - {fileID: 959289054}
+  - {fileID: 143861697}
+  - {fileID: 2130882357}
 --- !u!1 &49635878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,9 +1421,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1063089463}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 1695036974}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3037,9 +3056,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1063089463}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 1695036974}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4069,9 +4088,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1063089463}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 1695036974}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4491,7 +4510,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1063089462}
   - component: {fileID: 1063089461}
-  - component: {fileID: 1063089463}
   - component: {fileID: 1063089464}
   - component: {fileID: 1063089465}
   - component: {fileID: 1063089466}
@@ -4528,24 +4546,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1063089463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063089460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab26ae7d2bea954a9fa9a8974feecb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelsymbols:
-  - {fileID: 2147142405}
-  - {fileID: 614761142}
-  - {fileID: 959289054}
-  - {fileID: 143861697}
-  - {fileID: 2130882357}
 --- !u!114 &1063089464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10795,7 +10795,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1063089463}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: WipeData
         m_Mode: 1
@@ -13432,9 +13432,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1063089463}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 1695036974}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13641,9 +13641,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1063089463}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 1695036974}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

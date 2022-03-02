@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour
+public class LevelMenu : MonoBehaviour
 {
     static int levelsUnlocked
     {
@@ -18,7 +17,6 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] Button[] levelsymbols = new Button[5];
 
-
     private void Start()
     {
         for (int i = 0; i < levelsymbols.Length; i++)
@@ -31,15 +29,6 @@ public class LevelManager : MonoBehaviour
         {
             levelsymbols[i].interactable = true;
         }
-    }
-
-    /// <summary>
-    /// Loads the specified scene.
-    /// </summary>
-    /// <param name="levelIndex"></param>
-    public void LoadLevel(int levelIndex)
-    {
-        SceneManager.LoadScene(levelIndex);
     }
 
     /// <summary>

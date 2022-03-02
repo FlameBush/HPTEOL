@@ -25,7 +25,7 @@ public class SettingsMenu : MonoBehaviour
 
         if (GameManager != null)
         {
-            Settings LoadedSets = (Settings)GameManager.GetComponent<FileManager>().LoadSettings();
+            Settings LoadedSets = (Settings)GameManager.GetComponent<SettingsManager>().LoadSettings();
             sceneSettings = LoadedSets;
             qualityDropdown.value = sceneSettings.quality;
             volumeSlider.value = sceneSettings.volume;
@@ -52,7 +52,7 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         sceneSettings.resolution = resolutionIndex;
-        GameManager.GetComponent<FileManager>().SaveSettings(sceneSettings);
+        GameManager.GetComponent<SettingsManager>().SaveSettings(sceneSettings);
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ public class SettingsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
         sceneSettings.volume = volume;
-        GameManager.GetComponent<FileManager>().SaveSettings(sceneSettings);
+        GameManager.GetComponent<SettingsManager>().SaveSettings(sceneSettings);
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ public class SettingsMenu : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(qualityIndex);
         sceneSettings.quality = qualityIndex;
-        GameManager.GetComponent<FileManager>().SaveSettings(sceneSettings);
+        GameManager.GetComponent<SettingsManager>().SaveSettings(sceneSettings);
         if (qualityIndex == 3)
         {
             sc++;
@@ -94,7 +94,7 @@ public class SettingsMenu : MonoBehaviour
     {
         Screen.fullScreen = isFullscreen;
         sceneSettings.fullscreen = BoolToInt(isFullscreen);
-        GameManager.GetComponent<FileManager>().SaveSettings(sceneSettings);
+        GameManager.GetComponent<SettingsManager>().SaveSettings(sceneSettings);
     }
 
     /// <summary>

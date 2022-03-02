@@ -37,20 +37,18 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (index != 0)
         {
-            while (GetComponent<LevelManager>().enabled)
+            while (GetComponent<DiedMenu>().enabled)
             {
                 GetComponent<EscapeMenu>().enabled = true;
                 GetComponent<DiedMenu>().enabled = true;
-                GetComponent<LevelManager>().enabled = false;
             }
         }
         else
         {
-            while (!GetComponent<LevelManager>().enabled)
+            while (!GetComponent<DiedMenu>().enabled)
             {
                 GetComponent<EscapeMenu>().enabled = false;
                 GetComponent<DiedMenu>().enabled = false;
-                GetComponent<LevelManager>().enabled = true;
             }
         }
     }
