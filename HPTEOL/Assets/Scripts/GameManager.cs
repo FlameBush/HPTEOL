@@ -4,9 +4,21 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager instance;
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
         DontDestroyOnLoad(transform.gameObject);
     }
 
@@ -34,7 +46,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            while(!GetComponent<LevelManager>().enabled)
+            while (!GetComponent<LevelManager>().enabled)
             {
                 GetComponent<EscapeMenu>().enabled = false;
                 GetComponent<DiedMenu>().enabled = false;
