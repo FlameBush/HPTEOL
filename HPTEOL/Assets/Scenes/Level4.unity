@@ -9692,7 +9692,7 @@ GameObject:
   - component: {fileID: 1015121161}
   m_Layer: 5
   m_Name: Died Menu
-  m_TagString: Untagged
+  m_TagString: DiedMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
