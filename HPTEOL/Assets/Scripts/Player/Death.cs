@@ -14,7 +14,8 @@ public class Death : MonoBehaviour
         {
             escapeMenu = GameObject.Find("GameManager").GetComponent<EscapeMenu>();
             diedMenu = GameObject.Find("GameManager").GetComponent<DiedMenu>();
-        } else
+        }
+        else
         {
             Debug.LogWarning("Game Manager was not found certain functions may not work ignore this error or start from main menu!");
         }

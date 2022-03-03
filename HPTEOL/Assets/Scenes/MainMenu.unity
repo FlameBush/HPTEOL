@@ -10795,8 +10795,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 47389018}
+        m_TargetAssemblyTypeName: LevelMenu, Assembly-CSharp
         m_MethodName: WipeData
         m_Mode: 1
         m_Arguments:

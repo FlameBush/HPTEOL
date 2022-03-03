@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +16,8 @@ public class GameManager : MonoBehaviour
         if (instance != null)
         {
             Destroy(this.gameObject);
-        } else
+        }
+        else
         {
             instance = this;
         }
@@ -43,15 +43,15 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex != 0)
-        {
-            dms.enabled = true;
-            esc.enabled = true;
-        }
-        else
+        if (scene.buildIndex == 0 || scene.buildIndex == 6)
         {
             dms.enabled = false;
             esc.enabled = false;
+        }
+        else
+        {
+            dms.enabled = true;
+            esc.enabled = true;
         }
     }
 }

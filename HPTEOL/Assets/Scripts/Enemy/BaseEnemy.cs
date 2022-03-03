@@ -68,7 +68,8 @@ public class BaseEnemy : MonoBehaviour
         {
             Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.right), viewDistance, 8);
             SeeingClose = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.right), 1.5f, 8);
-        } else
+        }
+        else
         {
             Seeing = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.left), viewDistance, 8);
             SeeingClose = Physics2D.BoxCast(transform.position, new Vector2(1f, 1f), 0, transform.TransformDirection(Vector2.left), 1.5f, 8);
@@ -86,7 +87,7 @@ public class BaseEnemy : MonoBehaviour
                 State = 1;
             }
         }
-        
+
         if (SeeingClose.transform != null && SeeingClose.transform.CompareTag("Enemy") && State == 0)
         {
             sprite.flipX = !sprite.flipX;

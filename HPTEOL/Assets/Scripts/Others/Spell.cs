@@ -19,7 +19,8 @@ public class Spell : MonoBehaviour
         if (GetComponent<SpriteRenderer>().flipX)
         {
             rb2d.velocity = -transform.right * speed;
-        } else
+        }
+        else
         {
             rb2d.velocity = transform.right * speed;
         }
