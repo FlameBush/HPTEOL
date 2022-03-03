@@ -7,7 +7,7 @@ public class DiedMenu : MonoBehaviour
     private void Start()
     {
         DeathMenu = GameObject.Find("GameCanvas").transform.Find("Died Menu").gameObject;
-    }
+    }  
 
     public void DisplayDiedMenu()
     {

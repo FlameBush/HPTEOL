@@ -11,7 +11,6 @@ public class EscapeMenu : MonoBehaviour
         escapeScreenIsActive = false;
         escapeScreen = GameObject.Find("EscapeMenu").transform.Find("Escape").gameObject;
         settings = GameObject.Find("EscapeMenu").transform.Find("Settings").gameObject;
-        escapeScreen.SetActive(false);
     }
 
     private void Update()
