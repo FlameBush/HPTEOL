@@ -13,6 +13,7 @@ TagManager:
   - DiedMenu
   - EscapeMenu
   - EnemySpell
+  - TestTag
   layers:
   - Default
   - TransparentFX
