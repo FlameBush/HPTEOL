@@ -16,7 +16,7 @@ public class SettingsMenu : MonoBehaviour
     private GameObject GameManager;
     private int sc;
 
-    void Start()
+    private void Start()
     {
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();

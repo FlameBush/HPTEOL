@@ -41,7 +41,7 @@ public class PlayerStats : MonoBehaviour
         playersCurrentHealth = playersMaxHealth;
         gameObject.transform.position = gameObject.GetComponent<Death>().SpawningPoint.position;
         playerHealthBar.SetPlayerHealth(playersCurrentHealth);
-        GameObject.Find("GameManager").GetComponent<EscapeMenu>().ResumeGame();
+        GameObject.Find("EscapeMenu").GetComponent<EscapeMenu>().ResumeGame();
     }
 
 }

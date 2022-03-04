@@ -10,15 +10,8 @@ public class Death : MonoBehaviour
     private void Start()
     {
         player = GetComponent<PlayerStats>();
-        if (GameObject.Find("GameManager"))
-        {
-            escapeMenu = GameObject.Find("GameManager").GetComponent<EscapeMenu>();
-            diedMenu = GameObject.Find("GameManager").GetComponent<DiedMenu>();
-        }
-        else
-        {
-            Debug.LogWarning("Game Manager was not found certain functions may not work ignore this error or start from main menu!");
-        }
+        escapeMenu = GameObject.Find("EscapeMenu").GetComponent<EscapeMenu>();
+        diedMenu = GameObject.Find("DiedMenu").GetComponent<DiedMenu>();
     }
 
     private void Update()
@@ -46,11 +39,8 @@ public class Death : MonoBehaviour
 
     private void PlayerDied()
     {
+        diedMenu.DisplayDiedMenu();
+        escapeMenu.PauseGame();
         player.gameObject.SetActive(false);
-        if (diedMenu != null && escapeMenu != null)
-        {
-            diedMenu.DisplayDiedMenu();
-            escapeMenu.PauseGame();
-        }
     }
 }

@@ -19,9 +19,9 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(1);
         for (int i = 0; i < tutorials.Length; i++)
         {
-            tutorials[i].DOAnchorPos(new Vector2(0, 290), 1f).SetEase(Ease.InOutBounce);
+            tutorials[i].DOAnchorPos(new Vector2(0, 375), 1f).SetEase(Ease.InOutBounce);
             yield return new WaitForSeconds(2);
-            tutorials[i].DOAnchorPos(new Vector2(0, 754), 1f).SetEase(Ease.InOutBounce).OnComplete(() => tutorials[i].parent.gameObject.SetActive(false));
+            tutorials[i].DOAnchorPos(new Vector2(0, 650), 1f).SetEase(Ease.InOutBounce).OnComplete(() => tutorials[i].gameObject.SetActive(false));
             yield return new WaitForSeconds(2);
         }
     }
