@@ -89,6 +89,9 @@ TextureImporter:
   - first:
       213: 6929622361670399128
     second: AttackIdle_28
+  - first:
+      213: -1082352019299700729
+    second: AttackIdle_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -193,9 +196,9 @@ TextureImporter:
       name: AttackIdle_0
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -214,10 +217,10 @@ TextureImporter:
       name: AttackIdle_1
       rect:
         serializedVersion: 2
-        x: 42
+        x: 32
         y: 0
-        width: 13
-        height: 24
+        width: 32
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +238,10 @@ TextureImporter:
       name: AttackIdle_2
       rect:
         serializedVersion: 2
-        x: 75
+        x: 64
         y: 0
-        width: 15
-        height: 24
+        width: 32
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,9 +259,9 @@ TextureImporter:
       name: AttackIdle_3
       rect:
         serializedVersion: 2
-        x: 107
+        x: 96
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -277,9 +280,9 @@ TextureImporter:
       name: AttackIdle_4
       rect:
         serializedVersion: 2
-        x: 139
+        x: 128
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -298,9 +301,9 @@ TextureImporter:
       name: AttackIdle_5
       rect:
         serializedVersion: 2
-        x: 171
+        x: 160
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -319,9 +322,9 @@ TextureImporter:
       name: AttackIdle_6
       rect:
         serializedVersion: 2
-        x: 203
+        x: 192
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -340,9 +343,9 @@ TextureImporter:
       name: AttackIdle_7
       rect:
         serializedVersion: 2
-        x: 235
+        x: 224
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -361,9 +364,9 @@ TextureImporter:
       name: AttackIdle_8
       rect:
         serializedVersion: 2
-        x: 267
+        x: 256
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -382,9 +385,9 @@ TextureImporter:
       name: AttackIdle_9
       rect:
         serializedVersion: 2
-        x: 299
+        x: 288
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -403,9 +406,9 @@ TextureImporter:
       name: AttackIdle_10
       rect:
         serializedVersion: 2
-        x: 331
+        x: 320
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -424,9 +427,9 @@ TextureImporter:
       name: AttackIdle_11
       rect:
         serializedVersion: 2
-        x: 363
+        x: 352
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -445,9 +448,9 @@ TextureImporter:
       name: AttackIdle_12
       rect:
         serializedVersion: 2
-        x: 395
+        x: 384
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -466,9 +469,9 @@ TextureImporter:
       name: AttackIdle_13
       rect:
         serializedVersion: 2
-        x: 427
+        x: 416
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -487,9 +490,9 @@ TextureImporter:
       name: AttackIdle_14
       rect:
         serializedVersion: 2
-        x: 459
+        x: 448
         y: 0
-        width: 15
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -508,10 +511,10 @@ TextureImporter:
       name: AttackIdle_15
       rect:
         serializedVersion: 2
-        x: 491
+        x: 480
         y: 0
-        width: 15
-        height: 25
+        width: 32
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,10 +532,10 @@ TextureImporter:
       name: AttackIdle_16
       rect:
         serializedVersion: 2
-        x: 522
+        x: 512
         y: 0
-        width: 13
-        height: 23
+        width: 32
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -550,10 +553,10 @@ TextureImporter:
       name: AttackIdle_17
       rect:
         serializedVersion: 2
-        x: 554
+        x: 544
         y: 0
-        width: 13
-        height: 24
+        width: 32
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -571,9 +574,9 @@ TextureImporter:
       name: AttackIdle_18
       rect:
         serializedVersion: 2
-        x: 586
+        x: 576
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -592,9 +595,9 @@ TextureImporter:
       name: AttackIdle_19
       rect:
         serializedVersion: 2
-        x: 618
+        x: 608
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -613,9 +616,9 @@ TextureImporter:
       name: AttackIdle_20
       rect:
         serializedVersion: 2
-        x: 650
+        x: 638
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -634,9 +637,9 @@ TextureImporter:
       name: AttackIdle_21
       rect:
         serializedVersion: 2
-        x: 682
+        x: 672
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -655,9 +658,9 @@ TextureImporter:
       name: AttackIdle_22
       rect:
         serializedVersion: 2
-        x: 714
+        x: 704
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -676,9 +679,9 @@ TextureImporter:
       name: AttackIdle_23
       rect:
         serializedVersion: 2
-        x: 746
+        x: 736
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -697,9 +700,9 @@ TextureImporter:
       name: AttackIdle_24
       rect:
         serializedVersion: 2
-        x: 778
+        x: 768
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -718,9 +721,9 @@ TextureImporter:
       name: AttackIdle_25
       rect:
         serializedVersion: 2
-        x: 810
+        x: 800
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -739,9 +742,9 @@ TextureImporter:
       name: AttackIdle_26
       rect:
         serializedVersion: 2
-        x: 842
+        x: 832
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -760,9 +763,9 @@ TextureImporter:
       name: AttackIdle_27
       rect:
         serializedVersion: 2
-        x: 874
+        x: 864
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -781,9 +784,9 @@ TextureImporter:
       name: AttackIdle_28
       rect:
         serializedVersion: 2
-        x: 906
+        x: 896
         y: 0
-        width: 13
+        width: 32
         height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
