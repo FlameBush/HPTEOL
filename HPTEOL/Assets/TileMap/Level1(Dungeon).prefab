@@ -5083,22 +5083,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
+  m_FalloffIntensity: 0.3
   m_Color: {r: 0.9433962, g: 0.6904818, b: 0.3960484, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_LightVolumeOpacity: 0.8
   m_ApplyToSortingLayers: ab2563680000000059bda63145a6f247
   m_LightCookieSprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
-  m_UseNormalMap: 0
+  m_UseNormalMap: 1
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowVolumeIntensity: 0.1
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 6
-  m_PointLightOuterRadius: 11
-  m_PointLightDistance: 3
+  m_PointLightInnerRadius: 3
+  m_PointLightOuterRadius: 10
+  m_PointLightDistance: 10
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 14
   m_ShapeLightParametricAngleOffset: 0
@@ -10082,22 +10082,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
+  m_FalloffIntensity: 0.3
   m_Color: {r: 0.9433962, g: 0.6904818, b: 0.3960484, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_LightVolumeOpacity: 0.8
   m_ApplyToSortingLayers: ab2563680000000059bda63145a6f247
   m_LightCookieSprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
-  m_UseNormalMap: 0
+  m_UseNormalMap: 1
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowVolumeIntensity: 0.1
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 6
-  m_PointLightOuterRadius: 11
-  m_PointLightDistance: 3
+  m_PointLightInnerRadius: 3
+  m_PointLightOuterRadius: 10
+  m_PointLightDistance: 10
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 14
   m_ShapeLightParametricAngleOffset: 0
@@ -15932,22 +15932,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
+  m_FalloffIntensity: 0.3
   m_Color: {r: 0.9433962, g: 0.6904818, b: 0.3960484, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_LightVolumeOpacity: 0.8
   m_ApplyToSortingLayers: ab2563680000000059bda63145a6f247
   m_LightCookieSprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
-  m_UseNormalMap: 0
+  m_UseNormalMap: 1
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowVolumeIntensity: 0.1
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 6
-  m_PointLightOuterRadius: 11
-  m_PointLightDistance: 3
+  m_PointLightInnerRadius: 3
+  m_PointLightOuterRadius: 10
+  m_PointLightDistance: 10
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 14
   m_ShapeLightParametricAngleOffset: 0
@@ -20905,22 +20905,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
+  m_FalloffIntensity: 0.3
   m_Color: {r: 0.9433962, g: 0.6904818, b: 0.3960484, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_LightVolumeOpacity: 0.8
   m_ApplyToSortingLayers: ab2563680000000059bda63145a6f247
   m_LightCookieSprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
-  m_UseNormalMap: 0
+  m_UseNormalMap: 1
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowVolumeIntensity: 0.1
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 6
-  m_PointLightOuterRadius: 11
-  m_PointLightDistance: 3
+  m_PointLightInnerRadius: 3
+  m_PointLightOuterRadius: 10
+  m_PointLightDistance: 10
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 14
   m_ShapeLightParametricAngleOffset: 0
@@ -26059,22 +26059,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
+  m_FalloffIntensity: 0.3
   m_Color: {r: 0.9433962, g: 0.6904818, b: 0.3960484, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_LightVolumeOpacity: 0.8
   m_ApplyToSortingLayers: ab2563680000000059bda63145a6f247
   m_LightCookieSprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
-  m_UseNormalMap: 0
+  m_UseNormalMap: 1
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowVolumeIntensity: 0.1
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 6
-  m_PointLightOuterRadius: 11
-  m_PointLightDistance: 3
+  m_PointLightInnerRadius: 3
+  m_PointLightOuterRadius: 10
+  m_PointLightDistance: 10
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 14
   m_ShapeLightParametricAngleOffset: 0
@@ -72851,6 +72851,38 @@ PrefabInstance:
     - target: {fileID: 8001302616409675944, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001302616409675949, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
+      propertyPath: m_Intensity
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001302616409675949, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
+      propertyPath: m_UseNormalMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001302616409675949, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001302616409675949, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
+      propertyPath: m_PointLightDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001302616409675949, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
+      propertyPath: m_AlphaBlendOnOverlap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001302616409675949, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001302616409675949, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001302616409675949, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
+      propertyPath: m_ShadowVolumeIntensity
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c357c048f91bfd4aa7db3243c60ec6e, type: 3}
