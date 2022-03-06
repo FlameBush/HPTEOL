@@ -21,8 +21,19 @@ public class BasicHit : MonoBehaviour
         if (collision.CompareTag("Player") && !DamageTimeout)
         {
             StartCoroutine(DamagePlayer());
+
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player") && !DamageTimeout)
+    //    {
+    //        StartCoroutine(DamagePlayer());
+    //        addReverseForce();
+    //    }
+    //}
+
 
     public virtual IEnumerator DamagePlayer()
     {
@@ -30,8 +41,17 @@ public class BasicHit : MonoBehaviour
         var damage = attackDamage;
         attackDamage = 0;
         DamageTimeout = true;
+        addReverseForce();
         yield return new WaitForSeconds(damageTimeout);
         attackDamage = damage;
         DamageTimeout = false;
+    }
+
+    [SerializeField] float backForce;
+    public void addReverseForce()
+    {
+        Rigidbody2D rb = Player.GetComponent<Rigidbody2D>();
+        //Vector2 dir = transform.position - Player.position; 
+        Player.GetComponent<Rigidbody2D>().AddRelativeForce(Player.transform.up * backForce,ForceMode2D.Impulse);
     }
 }
