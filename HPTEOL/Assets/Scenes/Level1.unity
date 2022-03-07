@@ -5746,8 +5746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4ab9fa0ff2171429ec4cbbb9719ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 23
-  sprintSpeed: 60
+  runSpeed: 45
+  sprintSpeed: 75
   horizontal: 0
 --- !u!114 &167508798
 MonoBehaviour:
@@ -5814,9 +5814,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca487f9dbef8bb64284050ecc22d493c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 850
+  m_JumpForce: 950
   m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0.0878
+  m_MovementSmoothing: 0.06
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -17591,7 +17591,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 136572133}
   m_HandleRect: {fileID: 0}
