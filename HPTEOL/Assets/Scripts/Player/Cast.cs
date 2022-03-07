@@ -24,6 +24,8 @@ public class Cast : MonoBehaviour
         }
     }
 
+    [SerializeField] Image[] SelectImages;
+
     private void Update()
     {
         if (!EscapeMenu.escapeScreenIsActive)
@@ -49,6 +51,25 @@ public class Cast : MonoBehaviour
                 AnimatingAbilitySymbol(abilityImages[2]);
                 StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[2], 1.25f, 2));
                 usedAbilityX[2] = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Debug.Log("1 Pressed");
+                if (SelectImages[0].enabled == true)
+                {
+                    SelectImages[0].enabled = false;
+                    SelectImages[1].enabled = true;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Debug.Log("1 Pressed");
+                if (SelectImages[1].enabled == true)
+                {
+                    SelectImages[1].enabled = false;
+                    SelectImages[0].enabled = true;
+                }
             }
         }
     }
