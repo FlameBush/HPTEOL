@@ -39,7 +39,14 @@ public class PlayerStats : MonoBehaviour
     public void ResetHealth()
     {
         playersCurrentHealth = playersMaxHealth;
-        gameObject.transform.position = gameObject.GetComponent<Death>().SpawningPoint.position;
+        if (CheckPoint.CheckPointPosition != Vector2.zero)
+        {
+            gameObject.transform.position = CheckPoint.CheckPointPosition;
+        }
+        else
+        {
+            gameObject.transform.position = gameObject.GetComponent<Death>().SpawningPoint.position;
+        }
         playerHealthBar.SetPlayerHealth(playersCurrentHealth);
         GameObject.Find("EscapeMenu").GetComponent<EscapeMenu>().ResumeGame();
     }
