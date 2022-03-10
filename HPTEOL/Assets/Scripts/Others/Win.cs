@@ -19,14 +19,14 @@ public class Win : MonoBehaviour
     {
         player.SetActive(false);
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        if (currentLevel <= 5)
+        if (currentLevel <= 2)
         {
             PlayerPrefs.SetInt("levelsUnlocked", currentLevel + 1);
         }
         GameObject.Find("GameCanvas").SetActive(false);
         Cutscene.SetActive(true);
         yield return new WaitForSeconds(2);
-        if (currentLevel != 7)
+        if (currentLevel != 5)
         {
             SceneManager.LoadSceneAsync(currentLevel + 1);
         }
