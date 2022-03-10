@@ -5952,7 +5952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1295574906}
   spells:
-  - {fileID: 489915568271532089, guid: 8a3f7329abc101344987706e348a1735, type: 3}
+  - {fileID: 1658112780640456, guid: d28083a9b0aa8044c8279e7d12ef63e8, type: 3}
   - {fileID: 831562079459650444, guid: ac3c3a3c7cc6cd2418c8c342f676e6d7, type: 3}
   - {fileID: 4137464855793223671, guid: 8058eb31f3034d24d83e73adbf12da93, type: 3}
   abilityImages:
@@ -6757,7 +6757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347495570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.13287, y: 1.7721319, z: -10}
+  m_LocalPosition: {x: -22.33665, y: 7.179638, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 102613758}
@@ -7283,7 +7283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401871796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 65.78892, y: -15.614259, z: -9.934511}
+  m_LocalPosition: {x: -15.198804, y: 15.535741, z: -9.934511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 534269406}
@@ -7670,7 +7670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 3, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
@@ -15157,10 +15157,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -28.706497, y: 14.851667}
-      - {x: -28.73239, y: -6.0609813}
-      - {x: -9.730919, y: -5.835336}
-      - {x: -9.683054, y: 15.069511}
+    - - {x: -9.636078, y: 14.972406}
+      - {x: -28.706497, y: 14.851667}
+      - {x: -28.820147, y: -4.452723}
+      - {x: -5.455536, y: -4.4410934}
+      - {x: -5.632103, y: 11.996528}
 --- !u!4 &970837788
 Transform:
   m_ObjectHideFlags: 0
@@ -15913,7 +15914,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -92.62912, y: 10.5757475}
-      - {x: -92.60136, y: 6.392049}
+      - {x: -92.60136, y: 6.715622}
       - {x: -13.234291, y: 6.563906}
       - {x: -13.173597, y: 10.937662}
 --- !u!4 &1044745600
@@ -16828,7 +16829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295574905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.066, y: -0.033, z: 0}
+  m_LocalPosition: {x: 0.1792, y: -0.033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 167508804}
@@ -18879,7 +18880,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.43
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.26
   m_DeadZoneHeight: 0.29
@@ -18888,7 +18889,7 @@ MonoBehaviour:
   m_SoftZoneWidth: 0.83
   m_SoftZoneHeight: 0.86
   m_BiasX: -0.02800001
-  m_BiasY: 0
+  m_BiasY: 0.00000005228477
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
@@ -19987,8 +19988,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -28.451818, y: 2.7491589}
       - {x: -28.413485, y: -4.147547}
-      - {x: -13.05735, y: -4.128163}
-      - {x: -13.099661, y: 2.8242092}
+      - {x: -8.481033, y: -4.198031}
+      - {x: -8.593206, y: 2.8591423}
 --- !u!4 &1884849685
 Transform:
   m_ObjectHideFlags: 0
@@ -20268,8 +20269,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -28.309092, y: 11.95832}
-      - {x: -28.413485, y: -4.147547}
+    - - {x: -24.82852, y: 12.004116}
+      - {x: -24.520742, y: -4.0101557}
       - {x: -13.05735, y: -4.128163}
       - {x: -13.037268, y: 11.908592}
 --- !u!4 &1909139955

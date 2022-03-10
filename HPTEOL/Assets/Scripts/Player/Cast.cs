@@ -9,7 +9,10 @@ public class Cast : MonoBehaviour
 
     [SerializeField] private GameObject[] spells = new GameObject[3];
     [SerializeField] private Image[] abilityImages = new Image[3];
+    
     private bool[] usedAbilityX = new bool[3];
+    private bool[] selectedAbilityX = new bool[3];
+    
     private PlayerMovement movement;
 
     private void Awake()
@@ -31,31 +34,65 @@ public class Cast : MonoBehaviour
         if (!EscapeMenu.escapeScreenIsActive)
         {
             Time.timeScale = 1;
-            if (Input.GetButtonDown("Fire1") && !usedAbilityX[0])
+
+            if (Input.GetButtonDown("Fire1"))
             {
-                Shoot(spells[0]);
-                AnimatingAbilitySymbol(abilityImages[0]);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[0], 0.35f, 0));
-                usedAbilityX[0] = true;
-            }
-            else if (Input.GetButtonDown("Fire2") && !usedAbilityX[1])
-            {
-                Shoot(spells[1]);
-                AnimatingAbilitySymbol(abilityImages[1]);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[1], 0.85f, 1));
-                usedAbilityX[1] = true;
-            }
-            else if (Input.GetButtonDown("Fire3") && !usedAbilityX[2])
-            {
-                Shoot(spells[2]);
-                AnimatingAbilitySymbol(abilityImages[2]);
-                StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[2], 1.25f, 2));
-                usedAbilityX[2] = true;
+                if (selectedAbilityX[0] && !usedAbilityX[0])
+                {
+                    Shoot(spells[0]);
+                    AnimatingAbilitySymbol(abilityImages[0]);
+                    StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[0], 0.35f, 0));
+                    usedAbilityX[0] = true;
+                }
+                if (selectedAbilityX[1] && !usedAbilityX[1])
+                {
+                    Shoot(spells[1]);
+                    AnimatingAbilitySymbol(abilityImages[1]);
+                    StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[1], 0.85f, 1));
+                    usedAbilityX[1] = true;
+                }
             }
 
+            /*
+            //Uncomment This to get the previous system up and Running
+            //from Line 38-79
+            //if (Input.GetButtonDown("Fire1") && !usedAbilityX[0])
+            //{
+            //    Shoot(spells[0]);
+            //    AnimatingAbilitySymbol(abilityImages[0]);
+            //    StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[0], 0.35f, 0));
+            //    usedAbilityX[0] = true;
+            //}
+            //else if (Input.GetButtonDown("Fire2") && !usedAbilityX[1])
+            //{
+            //    Shoot(spells[1]);
+            //    AnimatingAbilitySymbol(abilityImages[1]);
+            //    StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[1], 0.85f, 1));
+            //    usedAbilityX[1] = true;
+            //}
+            //else if (Input.GetButtonDown("Fire3") && !usedAbilityX[2])
+            //{
+            //    Shoot(spells[2]);
+            //    AnimatingAbilitySymbol(abilityImages[2]);
+            //    StartCoroutine(AnimatingAbilitySymbolBackwards(abilityImages[2], 1.25f, 2));
+            //    usedAbilityX[2] = true;
+            //}
+            */
+            
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Debug.Log("1 Pressed");
+                for (int i = 0; i < selectedAbilityX.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        selectedAbilityX[i] = true;
+                    }
+                    else
+                    {
+                        selectedAbilityX[i] = false;
+                    }
+                }
                 if (SelectImages[0].enabled == true)
                 {
                     SelectImages[0].enabled = false;
@@ -65,6 +102,17 @@ public class Cast : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 Debug.Log("1 Pressed");
+                for (int i = 0; i < selectedAbilityX.Length; i++)
+                {
+                    if (i == 1)
+                    {
+                        selectedAbilityX[i] = true;
+                    }
+                    else
+                    {
+                        selectedAbilityX[i] = false;
+                    }
+                }
                 if (SelectImages[1].enabled == true)
                 {
                     SelectImages[1].enabled = false;
